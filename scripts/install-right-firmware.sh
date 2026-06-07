@@ -8,7 +8,7 @@
 # EXAMPLES:
 # ./scripts/install-right-firmware.sh
 # ./scripts/install-right-firmware.sh --commit
-# ./scripts/install-right-firmware.sh --commit --dest /mnt/d --windows-target 'E:\' --timeout 45
+# ./scripts/install-right-firmware.sh --commit --dest /mnt/d --volume-label NICENANO --timeout 45
 # ./scripts/install-right-firmware.sh --repo rodrigo1392/zmk-config-Keyball61-rr --workflow build.yml
 #
 # DEFAULT:
@@ -16,7 +16,8 @@
 # downloads artifacts into a temporary directory, locates the target UF2, and shows
 # the copy actions. Pass -c/--commit to copy to /mnt/d, create or refresh the
 # PowerShell helper only when needed, and run it so Windows copies the file from
-# D:\ to E:\. Downloaded firmware is cached in vault/ with consecutive numbers.
+# D:\ to the mounted NICENANO drive. Downloaded firmware is cached in vault/ with
+# consecutive numbers.
 #
 # USE CASE:
 # After pushing a ZMK config commit, GitHub Actions builds UF2 firmware files.
@@ -29,7 +30,8 @@
 # --dest PATH             WSL staging destination. Default: /mnt/d
 # --firmware NAME         UF2 filename to install.
 # --vault-dir PATH        Repo-local artifact cache directory. Default: vault
-# --windows-target PATH   Windows target drive/folder. Default: E:\
+# --volume-label LABEL    Windows volume label to auto-detect. Default: NICENANO
+# --windows-target PATH   Fallback Windows target if label is not found. Default: E:\
 # --ps-script-name NAME   PowerShell helper script name checked/created in --dest.
 # --repo OWNER/REPO       GitHub repo. Default: inferred from origin.
 # --workflow NAME         Workflow name or file. Default: build.yml
@@ -48,6 +50,7 @@ DEST="/mnt/d"
 FIRMWARE="keyball61_right-nice_nano_v2-zmk.uf2"
 VAULT_DIR="vault"
 WINDOWS_TARGET='E:\'
+WINDOWS_VOLUME_LABEL="NICENANO"
 PS_SCRIPT_NAME="copy-keyball61-firmware.ps1"
 REPO=""
 WORKFLOW="build.yml"
@@ -107,6 +110,11 @@ parse_args() {
       --windows-target)
         [[ $# -ge 2 ]] || error "--windows-target requires a Windows path"
         WINDOWS_TARGET="$2"
+        shift 2
+        ;;
+      --volume-label)
+        [[ $# -ge 2 ]] || error "--volume-label requires a label"
+        WINDOWS_VOLUME_LABEL="$2"
         shift 2
         ;;
       --ps-script-name)
@@ -336,12 +344,14 @@ write_powershell_copy_script() {
   local ps_script="$1"
 
   cat > "$ps_script" <<'POWERSHELL'
-# install-right-firmware-helper-version: 2
+# install-right-firmware-helper-version: 3
 param(
   [Parameter(Mandatory = $true)]
   [string]$SourceFile,
 
-  [string]$TargetRoot = "E:\"
+  [string]$TargetRoot = "E:\",
+
+  [string]$VolumeLabel = "NICENANO"
 )
 
 $ErrorActionPreference = "Stop"
@@ -351,9 +361,18 @@ if (-not (Test-Path -LiteralPath $SourceFile)) {
   exit 1
 }
 
-if (-not (Test-Path -LiteralPath $TargetRoot)) {
-  Write-Error "Target path not found. Is the keyboard mounted as $TargetRoot ?"
+$volume = Get-Volume -FileSystemLabel $VolumeLabel -ErrorAction SilentlyContinue |
+  Where-Object { $_.DriveLetter } |
+  Select-Object -First 1
+
+if ($volume) {
+  $TargetRoot = "$($volume.DriveLetter):\"
+  Write-Host "Found $VolumeLabel at $TargetRoot"
+} elseif (-not (Test-Path -LiteralPath $TargetRoot)) {
+  Write-Error "Target path not found. Could not find volume label '$VolumeLabel' and fallback '$TargetRoot' is unavailable."
   exit 1
+} else {
+  Write-Host "Could not find volume label '$VolumeLabel'; using fallback $TargetRoot"
 }
 
 $targetFile = Join-Path -Path $TargetRoot -ChildPath (Split-Path -Path $SourceFile -Leaf)
@@ -369,7 +388,7 @@ powershell_copy_script_needs_refresh() {
   local ps_script="$1"
 
   [[ -f "$ps_script" ]] || return 0
-  grep -q 'install-right-firmware-helper-version: 2' "$ps_script" && return 1
+  grep -q 'install-right-firmware-helper-version: 3' "$ps_script" && return 1
   return 0
 }
 
@@ -387,7 +406,8 @@ run_powershell_copy() {
     -ExecutionPolicy Bypass \
     -File "$ps_script_win" \
     -SourceFile "$source_file_win" \
-    -TargetRoot "$WINDOWS_TARGET"
+    -TargetRoot "$WINDOWS_TARGET" \
+    -VolumeLabel "$WINDOWS_VOLUME_LABEL"
 }
 
 main() {
@@ -444,7 +464,8 @@ main() {
   info "Target firmware: $FIRMWARE"
   info "Vault: $vault_path"
   info "WSL staging destination: $DEST"
-  info "Windows target: $WINDOWS_TARGET"
+  info "Windows volume label: $WINDOWS_VOLUME_LABEL"
+  info "Windows fallback target: $WINDOWS_TARGET"
 
   if cached_firmware="$(find_cached_firmware "$vault_path" "$short_sha" "$label")"; then
     firmware_path="$cached_firmware"
@@ -484,7 +505,7 @@ main() {
     else
       info "Dry-run: would create PowerShell script at $ps_script"
     fi
-    info "Dry-run: would run PowerShell to copy from D: to $WINDOWS_TARGET"
+    info "Dry-run: would run PowerShell to find $WINDOWS_VOLUME_LABEL and copy the firmware there"
     info "Run with --commit to install the firmware."
     exit 0
   fi
