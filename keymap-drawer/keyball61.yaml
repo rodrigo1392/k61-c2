@@ -56,7 +56,7 @@ layers:
   - $$mdi:apple-keyboard-option$$
   - {t: '-', s: _}
   - $$mdi:keyboard-space$$
-  - {t: '&td_mouse_toggle', h: MOUSE}
+  - {t: MOUSE, h: toggle}
   - SYM
   - FUN
   - $$mdi:keyboard-space$$
@@ -304,10 +304,10 @@ layers:
   - {t: '$$mdi:minus-circle-outline$$', type: none}
   - {t: '$$mdi:minus-circle-outline$$', type: none}
   - {t: '$$mdi:minus-circle-outline$$', type: none}
-  - {t: MOUSE, h: toggle, type: held}
+  - {t: MOUSE, h: toggle}
   - {t: '&td_scroll_toggle', h: SCROLL}
-  - {t: '$$mdi:minus-circle-outline$$', type: none}
   - {t: '&td_scroll_toggle', h: SCROLL}
+  - {t: MOUSE, h: toggle}
   - {t: '$$mdi:minus-circle-outline$$', type: none}
   - {t: '$$mdi:minus-circle-outline$$', type: none}
   SCROLL:
@@ -366,10 +366,10 @@ layers:
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
-  - {type: held}
-  - {type: held}
   - {t: '$$mdi:transfer$$', type: trans}
+  - {type: held}
   - {type: held alternate}
+  - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
   SNIPE:
