@@ -27,6 +27,14 @@
 
 / {
     behaviors {
+        mouse_hold_toggle: mouse_hold_toggle {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            tapping-term-ms = <500>;
+            flavor = "balanced";
+            bindings = <&mo>, <&tog>;
+        };
+
         td_scroll_toggle: td_scroll_toggle {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
@@ -95,7 +103,7 @@
 &kp TAB         &kp Q      &kp W         &kp E         &kp R   &kp T                                    &kp Y            &kp U   &kp I      &kp O    &kp P          &kp BACKSLASH
 &kp ESC         &kp A      &kp S         &kp D         &kp F   &kp G                                    &kp H            &kp J   &kp K      &kp L    &kp SEMI       &kp SQT
 &kp LEFT_SHIFT  &kp Z      &kp X         &kp C         &kp V   &kp B        &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp N            &kp M   &kp COMMA  &kp DOT  &kp FSLH       &kp RIGHT_SHIFT
-&kp LCTRL       &kp LEFT_WIN  &kp LEFT_ALT  &kp MINUS  &kp SPACE  &tog MOUSE  &mo SYM        &mo FUN      &kp SPACE                                    &kp RIGHT_ALT  &kp ENTER
+&kp LCTRL       &kp LEFT_WIN  &kp LEFT_ALT  &kp MINUS  &kp SPACE  &mouse_hold_toggle MOUSE MOUSE  &mo SYM        &mo FUN      &kp SPACE                                    &kp RIGHT_ALT  &kp ENTER
             >;
         };
 
