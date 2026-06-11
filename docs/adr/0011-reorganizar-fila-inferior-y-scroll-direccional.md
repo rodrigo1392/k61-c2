@@ -36,9 +36,8 @@ En `SCROLL`, mantener herencia general y usar estas teclas como flechas:
 - `RIGHT_SHIFT`: derecha;
 - `;`: arriba.
 
-En `SYM`, asignar `DELETE` a la posicion que antes enviaba `]`
-(`RIGHT_BRACKET`), para recuperar `DEL` sin dedicarle una tecla fisica en
-`DEFAULT`.
+En `SYM`, asignar `DELETE` a la tecla fisica `]` de `DEFAULT`, para recuperar
+`DEL` sin dedicarle una tecla fisica en `DEFAULT`.
 
 ## Consecuencias
 

@@ -76,6 +76,11 @@ para permitir acceso a `TRACKBLESS` desde la zona de pulgar. La posicion 58
 queda como control principal: desde `TRACKBLESS` vuelve a `QWRT`, y desde los
 demas layers entra a `TRACKBLESS` con doble tap.
 
+En `TRACKBLESS`, las posiciones 56 y 57 quedan dedicadas a acceso de capas:
+
+- posicion 56: hold activa `SCROLL`; doble tap alterna `SCROLL`;
+- posicion 57: hold activa `SYM`; doble tap alterna `SCROLL`.
+
 El acceso a `MOUSE` queda principalmente por `automouse-layer`.
 
 ## Archivos afectados
