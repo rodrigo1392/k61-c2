@@ -138,9 +138,9 @@
             label = "MOUSE";
             bindings = <
 &trans  &trans    &trans    &trans  &trans     &trans                  &kp C_VOL_DN   &kp C_VOL_UP  &kp C_PP  &kp C_PREV  &kp C_NEXT  &trans
-&trans  &trans    &trans    &trans  &trans     &trans                  &trans         &trans     &trans  &trans     &trans     &trans
-&trans  &trans    &mkp RCLK  &mkp MCLK  &mkp LCLK   &trans              &kp PAGE_UP    &mkp LCLK  &mkp MCLK  &mkp RCLK  &mo SCROLL  &trans
-&trans  &trans    &trans    &trans  &trans     &trans  &trans  &trans  &kp PAGE_DOWN  &trans     &trans  &trans     &trans     &trans
+&trans  &trans    &trans    &trans  &trans     &trans                  &kp LC(LG(N1))  &kp LC(LG(N2))  &kp LC(LG(N3))  &kp LC(LG(N4))  &kp LC(LG(N5))  &trans
+&trans  &trans    &mkp RCLK  &mkp MCLK  &mkp LCLK   &trans              &kp PAGE_UP    &mkp LCLK   &mkp MCLK   &mkp RCLK   &mo SCROLL  &trans
+&trans  &trans    &trans    &trans  &trans     &trans  &trans  &kp C_BRI_UP  &kp C_BRI_DN  &trans     &trans  &trans     &trans     &trans
 &trans  &trans    &trans    &trans  &hold_fun_toggle FUN 0  &td_trackbless_toggle  &trans  &hold_scroll_toggle SCROLL 0  &td_mouse_qwrt_trackbless          &trans     &trans
             >;
         };
