@@ -25,6 +25,15 @@
 };
 
 / {
+    behaviors {
+        td_mouse_default: td_mouse_default {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <350>;
+            bindings = <&none>, <&to DEFAULT>;
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
@@ -80,7 +89,7 @@
 &trans  &trans    &trans    &trans  &trans     &trans                  &trans         &trans     &trans  &trans     &trans     &trans
 &trans  &mkp RCLK  &mkp MCLK  &mkp LCLK  &kp RIGHT  &trans              &kp PAGE_UP    &mkp LCLK  &trans  &mkp RCLK  &mkp MCLK  &trans
 &trans  &trans    &trans    &trans  &trans     &trans  &trans  &trans  &kp PAGE_DOWN  &trans     &trans  &trans     &trans     &trans
-&trans  &trans    &trans    &trans  &trans     &trans  &trans  &trans  &mo MOUSE                                    &trans     &trans
+&trans  &trans    &trans    &trans  &trans     &td_mouse_default  &trans  &trans  &td_mouse_default                  &trans     &trans
             >;
         };
 
