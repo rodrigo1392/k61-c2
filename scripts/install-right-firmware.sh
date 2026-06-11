@@ -15,9 +15,9 @@
 # Dry-run. Finds the GitHub Actions run for the current HEAD commit, waits for it,
 # downloads artifacts into a temporary directory, locates the target UF2, and shows
 # the copy actions. Pass -c/--commit to copy to /mnt/d, create or refresh the
-# PowerShell helper only when needed, and run it so Windows copies the file from
-# D:\ to the mounted NICENANO drive. Downloaded firmware is cached in vault/ with
-# consecutive numbers.
+# PowerShell helper only when needed, run ~/.local/bin/codex-done-sound, and then
+# run PowerShell so Windows copies the file from D:\ to the mounted NICENANO
+# drive. Downloaded firmware is cached in vault/ with consecutive numbers.
 #
 # USE CASE:
 # After pushing a ZMK config commit, GitHub Actions builds UF2 firmware files.
@@ -40,7 +40,8 @@
 # -h, --help              Show this help.
 #
 # REQUIREMENTS:
-# gh, git, find, cp, grep, sed, tr, cut, wslpath, powershell.exe.
+# gh, git, find, cp, grep, sed, tr, cut, wslpath, powershell.exe,
+# ~/.local/bin/codex-done-sound.
 # Run `gh auth login` before downloading new artifacts.
 
 set -euo pipefail
@@ -52,6 +53,7 @@ VAULT_DIR="vault"
 WINDOWS_TARGET='E:\'
 WINDOWS_VOLUME_LABEL="NICENANO"
 PS_SCRIPT_NAME="copy-keyball61-firmware.ps1"
+DONE_SOUND_SCRIPT="${HOME}/.local/bin/codex-done-sound"
 REPO=""
 WORKFLOW="build.yml"
 POLL_SECONDS=10
@@ -410,6 +412,12 @@ run_powershell_copy() {
     -VolumeLabel "$WINDOWS_VOLUME_LABEL"
 }
 
+run_done_sound() {
+  [[ -x "$DONE_SOUND_SCRIPT" ]] || error "Done sound script is not executable: $DONE_SOUND_SCRIPT"
+
+  "$DONE_SOUND_SCRIPT"
+}
+
 main() {
   parse_args "$@"
 
@@ -526,6 +534,9 @@ main() {
     write_powershell_copy_script "$ps_script"
     info "Created PowerShell installer: $ps_script"
   fi
+
+  info "Running done sound before PowerShell installer..."
+  run_done_sound
 
   run_powershell_copy "$ps_script" "$dest_file" || error "PowerShell copy failed"
   info "PowerShell copy completed."

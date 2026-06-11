@@ -68,4 +68,4 @@ Summarize:
 2. Why it changed.
 3. How it was validated.
 4. Documentation created or modified.
-5. Play ~/projects/magic-doorbell.wav when finished.
+5. Run ~/.local/bin/codex-done-sound when finished.
