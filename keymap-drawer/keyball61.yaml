@@ -490,9 +490,9 @@ layers:
   - $$mdi:apple-keyboard-option$$
   - {t: '-', s: _}
   - {t: '&td_fun_toggle', h: FUN}
-  - '&td_trackbless_space'
+  - $$mdi:keyboard-space$$
   - {t: '&td_scroll_toggle', h: SCROLL}
   - {t: '&td_scroll_toggle', h: SYM}
-  - '&td_trackbless_space'
+  - $$mdi:keyboard-space$$
   - $$mdi:apple-keyboard-option$$
   - {t: '$$mdi:keyboard-return$$', type: enter}
