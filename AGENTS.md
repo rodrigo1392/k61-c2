@@ -55,9 +55,9 @@ Repository-specific knowledge:
 
 ## ADR Policy
 
-Create one ADRs for each commit. Explain:
+Create one ADRs only for major changes, not for small adjustments. Explain:
 
-* keyboard behavior changes: layer, key assignment, logic changes, combinations
+* keyboard behavior changes: layers, key assignment, logic changes, combinations
 * scripts that control flow of compiling and flashing
 
 ## Before Finishing
@@ -68,4 +68,4 @@ Summarize:
 2. Why it changed.
 3. How it was validated.
 4. Documentation created or modified.
-5. Play bell sound when finished.
+5. Play ~/projects/magic-doorbell.wav when finished.
