@@ -65,6 +65,12 @@
         automouse-layer = <4>;
 		scroll-layers = <5>;
 		snipe-layers = <6>;
+
+        trackball_lock {
+            layers = <0 1 2 3>;
+            bindings = <&none>, <&none>, <&none>, <&none>;
+            tick = <1>;
+        };
     };
 };
 
@@ -110,12 +116,6 @@
 };
 
 / {
-  trackball_lock {
-    layers = <0 1 2 3>;
-    bindings = <&none>, <&none>, <&none>, <&none>;
-    tick = <1>;
-  };
-
   trackball_listener {
     compatible = "zmk,input-listener";
     device = <&trackball>;

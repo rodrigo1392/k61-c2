@@ -25,19 +25,26 @@ La numeracion actual de layers es:
 
 ## Decision
 
-Agregar `trackball_lock` en el overlay derecho para bloquear todos los layers
-excepto `MOUSE`, `SCROLL` y `SNIPE`:
+Agregar `trackball_lock` como subnodo del PMW3610 en el overlay derecho para
+bloquear todos los layers excepto `MOUSE`, `SCROLL` y `SNIPE`:
 
 ```c
-trackball_lock {
-  layers = <0 1 2 3>;
-  bindings = <&none>, <&none>, <&none>, <&none>;
-  tick = <1>;
+trackball: trackball@0 {
+    ...
+
+    trackball_lock {
+        layers = <0 1 2 3>;
+        bindings = <&none>, <&none>, <&none>, <&none>;
+        tick = <1>;
+    };
 };
 ```
 
 Las cuatro direcciones se asignan a `&none`, por lo que el movimiento
 interceptado se descarta.
+
+El nodo debe quedar dentro de `trackball: trackball@0`. Ubicarlo directamente
+en `/ { ... }` no hizo que el driver interceptara el movimiento.
 
 ## Consecuencias
 
