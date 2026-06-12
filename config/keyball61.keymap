@@ -66,14 +66,14 @@
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <350>;
-            bindings = <&to SCROLL>, <&tog SCROLL>;
+            bindings = <&mo SCROLL>, <&tog SCROLL>;
         };
 
         td_fun_to_toggle: td_fun_to_toggle {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <350>;
-            bindings = <&to FUN>, <&tog FUN>;
+            bindings = <&mo FUN>, <&tog FUN>;
         };
 
         td_blocked_default: td_blocked_default {
@@ -155,7 +155,7 @@
         function_layer {
             label = "FUN";
             bindings = <
-&to BLOCKED  &tog SNIPE  &none   &none   &none   &none                  &kp PLUS  &kp MINUS  &kp ASTERISK  &kp FSLH  &none  &none
+&to BLOCKED  &to SNIPE  &none   &none   &none   &none                  &kp PLUS  &kp MINUS  &kp ASTERISK  &kp FSLH  &none  &none
 &none        &none       &none   &none   &none   &email_rodrigo         &kp N7    &kp N8     &kp N9        &kp EQUAL &none  &none
 &none        &none       &none   &none   &none   &none                  &kp N4    &kp N5     &kp N6        &none     &none  &none
 &none        &none       &none   &none   &none   &none  &none  &kp N0  &kp N1  &kp N2  &kp N3  &none  &none  &none
@@ -189,8 +189,8 @@
             label = "MOUSE";
             bindings = <
 &none  &none     &none     &none  &none     &none                  &kp C_VOL_DN   &kp C_VOL_UP  &kp C_PP   &kp C_PREV  &kp C_NEXT  &none
-&none  &none     &none     &none  &none     &none                  &none          &none         &none      &kp LC(LG(LEFT))  &kp LC(LG(RIGHT))  &none
-&none  &none     &mkp RCLK  &mkp MCLK  &mkp LCLK  &none            &kp PAGE_UP    &mkp LCLK     &mkp MCLK  &mkp RCLK  &td_scroll_to_toggle  &none
+&none  &none     &none     &none  &none     &none                  &kp LC(LG(LEFT))  &kp LC(LG(RIGHT))  &none      &none  &td_scroll_to_toggle  &none
+&none  &none     &mkp RCLK  &mkp MCLK  &mkp LCLK  &none            &kp PAGE_UP    &mkp LCLK     &mkp MCLK  &mkp RCLK  &none  &none
 &none  &none     &none     &none  &none     &none  &none  &kp C_BRI_DN  &kp C_BRI_UP  &none  &none  &none  &none  &none
 &none  &none     &none     &none  &td_fun_to_toggle  &none  &td_scroll_to_toggle  &ht_57_qwrt_hold_trackbless TRACKBLESS 0  &none                  &none  &none
             >;

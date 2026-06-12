@@ -394,13 +394,13 @@ td_scroll_to_toggle: td_scroll_to_toggle {
     compatible = "zmk,behavior-tap-dance";
     #binding-cells = <0>;
     tapping-term-ms = <350>;
-    bindings = <&to SCROLL>, <&tog SCROLL>;
+    bindings = <&mo SCROLL>, <&tog SCROLL>;
 };
 ```
 
 Lectura:
 
-- un tap: cambia a `SCROLL`.
+- un tap: activa `SCROLL` momentaneamente.
 - dos taps dentro de 350 ms: toggle de `SCROLL`.
 
 ### Tap-dance: `td_qwrt_sym_toggle`

@@ -102,10 +102,18 @@ arriba hacia abajo. `Posicion ZMK` usa indice 0-based.
 | 51 | `&kp LEFT_WIN` | Super/Windows izquierdo |
 | 52 | `&kp LEFT_ALT` | Alt izquierdo |
 | 53 | `&kp MINUS` | `-` |
-| 54 | `&td_fun_to_toggle` | Tap: `FUN`; doble tap: toggle `FUN` |
+| 54 | `&td_fun_to_toggle` | Tap: `FUN` momentaneo; doble tap: toggle `FUN` |
 | 55 | `&kp SPACE` | Espacio |
-| 56 | `&td_scroll_to_toggle` | Tap: `SCROLL`; doble tap: toggle `SCROLL` |
+| 56 | `&td_scroll_to_toggle` | Tap: `SCROLL` momentaneo; doble tap: toggle `SCROLL` |
 | 57 | `&ht_57_to_sym_hold_trackbless TRACKBLESS 0` | Tap: `SYM`; doble tap: toggle `SYM`; hold: toggle `TRACKBLESS` |
 | 58 | `&kp SPACE` | Espacio |
 | 59 | `&kp RIGHT_ALT` | Alt derecho |
 | 60 | `&kp ENTER` | Enter |
+
+## Accesos relevantes en MOUSE
+
+| Posicion ZMK | Binding | Significado |
+| ---: | --- | --- |
+| 18 | `&kp LC(LG(LEFT))` | Cambiar al escritorio izquierdo |
+| 19 | `&kp LC(LG(RIGHT))` | Cambiar al escritorio derecho |
+| 22 | `&td_scroll_to_toggle` | Tap: `SCROLL` momentaneo; doble tap: toggle `SCROLL` |
