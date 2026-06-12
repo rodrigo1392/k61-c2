@@ -85,34 +85,34 @@
 
         ht_57_to_sym_hold_trackbless: ht_57_to_sym_hold_trackbless {
             compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <0>;
+            #binding-cells = <2>;
             tapping-term-ms = <200>;
             flavor = "hold-preferred";
-            bindings = <&tog TRACKBLESS>, <&td_sym_to_toggle>;
+            bindings = <&tog>, <&td_sym_to_toggle>;
         };
 
         ht_57_qwrt_hold_trackbless: ht_57_qwrt_hold_trackbless {
             compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <0>;
+            #binding-cells = <2>;
             tapping-term-ms = <200>;
             flavor = "hold-preferred";
-            bindings = <&tog TRACKBLESS>, <&td_qwrt_sym_toggle>;
+            bindings = <&tog>, <&td_qwrt_sym_toggle>;
         };
 
         ht_57_qwrt_hold_qwrt: ht_57_qwrt_hold_qwrt {
             compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <0>;
+            #binding-cells = <2>;
             tapping-term-ms = <200>;
             flavor = "hold-preferred";
-            bindings = <&tog QWRT>, <&td_sym_to_toggle>;
+            bindings = <&tog>, <&td_sym_to_toggle>;
         };
 
         ht_57_tog_qwrt_hold_trackbless: ht_57_tog_qwrt_hold_trackbless {
             compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <0>;
+            #binding-cells = <2>;
             tapping-term-ms = <200>;
             flavor = "hold-preferred";
-            bindings = <&tog TRACKBLESS>, <&tog QWRT>;
+            bindings = <&tog>, <&tog>;
         };
     };
 
@@ -126,7 +126,7 @@
 &none  &none     &none     &none  &none     &none                  &none          &none         &none      &kp LC(LG(LEFT))  &kp LC(LG(RIGHT))  &none
 &none  &none     &mkp RCLK  &mkp MCLK  &mkp LCLK  &none            &kp PAGE_UP    &mkp LCLK     &mkp MCLK  &mkp RCLK  &td_scroll_to_toggle  &none
 &none  &none     &none     &none  &none     &none  &none  &kp C_BRI_DN  &kp C_BRI_UP  &none  &none  &none  &none  &none
-&none  &none     &none     &none  &td_fun_to_toggle  &none  &td_scroll_to_toggle  &ht_57_qwrt_hold_trackbless  &none                  &none  &none
+&none  &none     &none     &none  &td_fun_to_toggle  &none  &td_scroll_to_toggle  &ht_57_qwrt_hold_trackbless TRACKBLESS 0  &none                  &none  &none
             >;
         };
 
@@ -137,7 +137,7 @@
 &none  &none  &none  &none  &none  &none                  &none  &none  &none  &none  &none  &none
 &none  &none  &none  &none  &none  &none                  &none  &none  &none  &none  &none  &none
 &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none
-&none  &none  &none  &none  &td_fun_to_toggle  &none  &td_scroll_to_toggle  &ht_57_tog_qwrt_hold_trackbless  &none              &none  &none
+&none  &none  &none  &none  &td_fun_to_toggle  &none  &td_scroll_to_toggle  &ht_57_tog_qwrt_hold_trackbless TRACKBLESS QWRT  &none              &none  &none
             >;
         };
 
@@ -148,7 +148,7 @@
 &none  &none            &none         &none         &none         &none                        &none           &none          &none             &none                 &none                  &none
 &none  &bt BT_CLR       &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &none                        &kp MINUS       &kp EQUAL      &kp LEFT_BRACKET  &kp RIGHT_BRACKET     &none                  &none
 &none  &none            &none         &none         &none         &none       &none  &kp DEL   &kp UNDERSCORE  &kp PLUS       &none             &none                 &none                  &none
-&none  &none            &none         &none         &td_fun_to_toggle  &kp ENTER  &td_scroll_to_toggle  &ht_57_tog_qwrt_hold_trackbless  &kp ENTER                                                            &none                  &none
+&none  &none            &none         &none         &td_fun_to_toggle  &kp ENTER  &td_scroll_to_toggle  &ht_57_tog_qwrt_hold_trackbless TRACKBLESS QWRT  &kp ENTER                                                            &none                  &none
             >;
         };
 
@@ -159,7 +159,7 @@
 &none        &none       &none   &none   &none   &email_rodrigo         &kp N7    &kp N8     &kp N9        &kp EQUAL &none  &none
 &none        &none       &none   &none   &none   &none                  &kp N4    &kp N5     &kp N6        &none     &none  &none
 &none        &none       &none   &none   &none   &none  &none  &kp N0  &kp N1  &kp N2  &kp N3  &none  &none  &none
-&none        &none       &none   &none   &td_fun_to_toggle  &none  &td_scroll_to_toggle  &ht_57_qwrt_hold_trackbless  &none              &none  &none
+&none        &none       &none   &none   &td_fun_to_toggle  &none  &td_scroll_to_toggle  &ht_57_qwrt_hold_trackbless TRACKBLESS 0  &none              &none  &none
             >;
         };
 
@@ -170,7 +170,7 @@
 &none  &none  &none  &none  &none  &none                  &none  &none  &none  &none  &none  &none
 &none  &none  &none  &none  &none  &none                  &none  &none  &none  &none  &kp UP  &none
 &none  &none  &none  &none  &none  &none  &none  &kp DEL  &none  &none  &none  &kp LEFT  &kp DOWN  &kp RIGHT
-&none  &none  &none  &none  &td_fun_to_toggle  &kp ENTER  &none  &ht_57_qwrt_hold_trackbless  &kp ENTER              &none  &none
+&none  &none  &none  &none  &td_fun_to_toggle  &kp ENTER  &none  &ht_57_qwrt_hold_trackbless TRACKBLESS 0  &kp ENTER              &none  &none
             >;
         };
 
@@ -181,7 +181,7 @@
 &kp TAB         &kp Q         &kp W         &kp E         &kp R   &kp T                                    &kp Y            &kp U   &kp I      &kp O    &kp P          &kp BACKSLASH
 &kp ESC         &kp A         &kp S         &kp D         &kp F   &kp G                                    &kp H            &kp J   &kp K      &kp L    &kp SEMI       &kp SQT
 &kp LEFT_SHIFT  &kp Z         &kp X         &kp C         &kp V   &kp B        &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp N            &kp M   &kp COMMA  &kp DOT  &kp FSLH       &kp RIGHT_SHIFT
-&kp LCTRL       &kp LEFT_WIN  &kp LEFT_ALT  &kp MINUS     &td_fun_to_toggle  &kp SPACE  &td_scroll_to_toggle  &ht_57_qwrt_hold_qwrt  &kp SPACE                  &kp RIGHT_ALT  &kp ENTER
+&kp LCTRL       &kp LEFT_WIN  &kp LEFT_ALT  &kp MINUS     &td_fun_to_toggle  &kp SPACE  &td_scroll_to_toggle  &ht_57_qwrt_hold_qwrt QWRT 0  &kp SPACE                  &kp RIGHT_ALT  &kp ENTER
             >;
         };
 
@@ -192,7 +192,7 @@
 &kp TAB         &kp Q         &kp W         &kp E         &kp R   &kp T                                    &kp Y            &kp U   &kp I      &kp O    &kp P          &kp BACKSLASH
 &kp ESC         &kp A         &kp S         &kp D         &kp F   &kp G                                    &kp H            &kp J   &kp K      &kp L    &kp SEMI       &kp SQT
 &kp LEFT_SHIFT  &kp Z         &kp X         &kp C         &kp V   &kp B        &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp N            &kp M   &kp COMMA  &kp DOT  &kp FSLH       &kp RIGHT_SHIFT
-&kp LCTRL       &kp LEFT_WIN  &kp LEFT_ALT  &kp MINUS     &td_fun_to_toggle  &kp SPACE  &td_scroll_to_toggle  &ht_57_to_sym_hold_trackbless  &kp SPACE                  &kp RIGHT_ALT  &kp ENTER
+&kp LCTRL       &kp LEFT_WIN  &kp LEFT_ALT  &kp MINUS     &td_fun_to_toggle  &kp SPACE  &td_scroll_to_toggle  &ht_57_to_sym_hold_trackbless TRACKBLESS 0  &kp SPACE                  &kp RIGHT_ALT  &kp ENTER
             >;
         };
 

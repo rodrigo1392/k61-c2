@@ -425,10 +425,10 @@ simbolos.
 ```c
 ht_57_qwrt_hold_trackbless: ht_57_qwrt_hold_trackbless {
     compatible = "zmk,behavior-hold-tap";
-    #binding-cells = <0>;
+    #binding-cells = <2>;
     tapping-term-ms = <200>;
     flavor = "hold-preferred";
-    bindings = <&tog TRACKBLESS>, <&td_qwrt_sym_toggle>;
+    bindings = <&tog>, <&td_qwrt_sym_toggle>;
 };
 ```
 
@@ -436,6 +436,12 @@ Lectura:
 
 - hold: toggle de `TRACKBLESS`.
 - tap: ejecuta `td_qwrt_sym_toggle`.
+
+Uso actual:
+
+```c
+&ht_57_qwrt_hold_trackbless TRACKBLESS 0
+```
 
 ### Mouse: `&mkp`, `&mmv`, `&msc`
 

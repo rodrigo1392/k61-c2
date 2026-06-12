@@ -105,7 +105,7 @@ arriba hacia abajo. `Posicion ZMK` usa indice 0-based.
 | 54 | `&td_fun_to_toggle` | Tap: `FUN`; doble tap: toggle `FUN` |
 | 55 | `&kp SPACE` | Espacio |
 | 56 | `&td_scroll_to_toggle` | Tap: `SCROLL`; doble tap: toggle `SCROLL` |
-| 57 | `&ht_57_to_sym_hold_trackbless` | Tap: `SYM`; doble tap: toggle `SYM`; hold: toggle `TRACKBLESS` |
+| 57 | `&ht_57_to_sym_hold_trackbless TRACKBLESS 0` | Tap: `SYM`; doble tap: toggle `SYM`; hold: toggle `TRACKBLESS` |
 | 58 | `&kp SPACE` | Espacio |
 | 59 | `&kp RIGHT_ALT` | Alt derecho |
 | 60 | `&kp ENTER` | Enter |
