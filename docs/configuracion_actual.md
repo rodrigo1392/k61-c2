@@ -11,13 +11,13 @@ layer base.
 | Numero | Define | Label | Preferencia |
 | ---: | --- | --- | --- |
 | 7 | `BLOCKED` | `BLOCKED` | 1, mas alta |
-| 6 | `QWRT` | `QWRT` | 2 |
+| 6 | `MOUSE` | `MOUSE` | 2 |
 | 5 | `TRACKBLESS` | `TRACKBLESS` | 3 |
 | 4 | `SCROLL` | `SCROLL` | 4 |
 | 3 | `FUN` | `FUN` | 5 |
 | 2 | `SYM` | `SYM` | 6 |
 | 1 | `SNIPE` | `SNIPE` | 7 |
-| 0 | `MOUSE` | `MOUSE` | 8, base |
+| 0 | `QWRT` | `QWRT` | 8, base |
 
 ## Numeracion de teclas en QWRT
 

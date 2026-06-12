@@ -2,9 +2,8 @@
 
 ## Context
 
-El uso actual necesita que el movimiento del trackball vuelva al modo de mouse
-base y que la escritura normal viva en un layer alto (`QWRT`) activable desde
-los modos auxiliares.
+El uso actual necesita que el movimiento del trackball active el modo de mouse y
+que la escritura normal quede en el layer base (`QWRT`).
 
 Tambien se necesita un layer `BLOCKED` para anular teclas y trackball, con una
 salida explicita por doble tap.
@@ -14,26 +13,26 @@ salida explicita por doble tap.
 Reorganizar la numeracion de layers:
 
 ```c
-#define MOUSE      0
+#define QWRT       0
 #define SNIPE      1
 #define SYM        2
 #define FUN        3
 #define SCROLL     4
 #define TRACKBLESS 5
-#define QWRT       6
+#define MOUSE      6
 #define BLOCKED    7
 ```
 
-Configurar `automouse-layer = <0>` para que el movimiento del trackball active
+Configurar `automouse-layer = <6>` para que el movimiento del trackball active
 `MOUSE`.
 
 Agregar `BLOCKED` como layer 7, con todas las teclas en `&none` salvo doble tap
-en las posiciones 56 o 57 para volver a `MOUSE`.
+en las posiciones 56 o 57 para volver a `QWRT`.
 
 ## Consequences
 
-`MOUSE` pasa a ser el layer base. `QWRT` deja de ser layer 0 y queda como layer
-6.
+`QWRT` queda como layer base. `MOUSE` queda en layer 6 y se activa por
+automouse.
 
 Los indices usados por el PMW3610 cambian: `SCROLL` es 4, `SNIPE` es 1, y el
 bloqueo del trackball aplica a `TRACKBLESS` y `BLOCKED`.

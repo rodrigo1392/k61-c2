@@ -112,8 +112,9 @@ Y tambien:
 ```c
 trackball: trackball@0 {
     compatible = "zmk,pmw3610";
-    scroll-layers = <7>;
-    snipe-layers = <6>;
+    automouse-layer = <6>;
+    scroll-layers = <4>;
+    snipe-layers = <1>;
 };
 ```
 
@@ -184,8 +185,9 @@ trackball: trackball@0 {
     reg = <0>;
     spi-max-frequency = <2000000>;
     irq-gpios = <&gpio1 11 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
-    scroll-layers = <7>;
-    snipe-layers = <6>;
+    automouse-layer = <6>;
+    scroll-layers = <4>;
+    snipe-layers = <1>;
 };
 ```
 
@@ -243,20 +245,20 @@ Ejemplos:
 Las capas estan definidas al inicio de `config/keyball61.keymap`:
 
 ```c
-#define MOUSE      0
+#define QWRT       0
 #define SNIPE      1
 #define SYM        2
 #define FUN        3
 #define SCROLL     4
 #define TRACKBLESS 5
-#define QWRT       6
+#define MOUSE      6
 #define BLOCKED    7
 ```
 
 La numeracion importa porque algunos nodos de hardware, como el PMW3610, referencian capas por numero:
 
 ```c
-automouse-layer = <0>;
+automouse-layer = <6>;
 scroll-layers = <4>;
 snipe-layers = <1>;
 ```
@@ -266,13 +268,13 @@ Por eso, si se reordena o renumera `MOUSE`, `SCROLL`, `SNIPE`, `TRACKBLESS` o
 
 | Layer | Funcion conceptual | Donde se modifica |
 | --- | --- | --- |
-| `MOUSE` | Layer base y destino de automouse por movimiento del trackball. | `config/keyball61.keymap` y `keyball61_right.overlay` |
+| `QWRT` | Layer base, escritura normal y accesos principales a otras capas. | `config/keyball61.keymap` |
 | `SNIPE` | Capa que el driver interpreta como modo de precision. | `config/keyball61.keymap` y `keyball61_right.conf` |
 | `SYM` | Simbolos, teclado numerico parcial y controles Bluetooth. | `config/keyball61.keymap` |
 | `FUN` | Teclas F1-F12 y macros. | `config/keyball61.keymap` |
 | `SCROLL` | Capa que el driver PMW3610 interpreta como modo scroll. | `config/keyball61.keymap` y `keyball61_right.overlay` |
 | `TRACKBLESS` | Capa equivalente a `QWRT` con trackball bloqueado. | `config/keyball61.keymap` y `keyball61_right.overlay` |
-| `QWRT` | Escritura normal y accesos principales a otras capas. | `config/keyball61.keymap` |
+| `MOUSE` | Destino de automouse por movimiento del trackball. | `config/keyball61.keymap` y `keyball61_right.overlay` |
 | `BLOCKED` | Bloqueo completo de teclas y trackball, con salida por doble tap. | `config/keyball61.keymap` y `keyball61_right.overlay` |
 
 ## Comportamientos ZMK usados en este repo
@@ -408,13 +410,13 @@ td_qwrt_sym_toggle: td_qwrt_sym_toggle {
     compatible = "zmk,behavior-tap-dance";
     #binding-cells = <0>;
     tapping-term-ms = <350>;
-    bindings = <&tog QWRT>, <&tog SYM>;
+    bindings = <&to QWRT>, <&tog SYM>;
 };
 ```
 
 Lectura:
 
-- un tap: toggle de `QWRT`.
+- un tap: vuelve a `QWRT`.
 - dos taps dentro de 350 ms: toggle de `SYM`.
 
 Se usa en la posicion 57 de capas auxiliares para alternar entre escritura y
@@ -533,12 +535,13 @@ trackball: trackball@0 {
     reg = <0>;
     spi-max-frequency = <2000000>;
     irq-gpios = <&gpio1 11 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
-    scroll-layers = <7>;
-    snipe-layers = <6>;
+    automouse-layer = <6>;
+    scroll-layers = <4>;
+    snipe-layers = <1>;
 
     trackball_lock {
-        layers = <1 2 3 5>;
-        bindings = <&none>, <&none>, <&none>, <&none>;
+        layers = <5 7>;
+        bindings = <&none>, <&none>;
         tick = <1>;
     };
 };
@@ -549,8 +552,9 @@ Lectura conceptual:
 - `compatible = "zmk,pmw3610"`: usa el driver externo del sensor PMW3610.
 - `spi-max-frequency`: velocidad maxima del bus SPI.
 - `irq-gpios`: pin de interrupcion del sensor.
-- `scroll-layers = <7>`: cuando `SCROLL` esta activo, el movimiento del trackball se interpreta como scroll.
-- `snipe-layers = <6>`: cuando `SNIPE` esta activo, se usa CPI de precision.
+- `automouse-layer = <6>`: el movimiento del trackball activa `MOUSE`.
+- `scroll-layers = <4>`: cuando `SCROLL` esta activo, el movimiento del trackball se interpreta como scroll.
+- `snipe-layers = <1>`: cuando `SNIPE` esta activo, se usa CPI de precision.
 - `trackball_lock`: anula el movimiento en capas seleccionadas, emitiendo `&none`.
 
 ### Parametros de sensibilidad y energia
