@@ -1,11 +1,11 @@
-#define DEFAULT 0
-#define NUM     1
-#define SYM     2
-#define FUN     3
-#define MOUSE   4
+#define MOUSE      0
+#define SNIPE      1
+#define SYM        2
+#define FUN        3
+#define SCROLL     4
 #define TRACKBLESS 5
-#define SNIPE   6
-#define SCROLL  7
+#define QWRT       6
+#define BLOCKED    7
 
 #include <behaviors/mouse_keys.dtsi>
 #include <behaviors.dtsi>
@@ -26,155 +26,184 @@
 };
 
 / {
+    macros {
+        email_rodrigo: email_rodrigo {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <40>;
+            tap-ms = <40>;
+            bindings = <
+                &kp R &kp O &kp D &kp R &kp I &kp G &kp O
+                &kp DOT
+                &kp M
+                &kp DOT
+                &kp R &kp I &kp V &kp E &kp R &kp O
+                &kp N1 &kp N3
+                &kp AT_SIGN
+                &kp G &kp M &kp A &kp I &kp L
+                &kp DOT
+                &kp C &kp O &kp M
+            >;
+        };
+    };
+
     behaviors {
-        td_scroll_toggle: td_scroll_toggle {
+        td_qwrt_sym_toggle: td_qwrt_sym_toggle {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <350>;
-            bindings = <&none>, <&tog SCROLL>;
+            bindings = <&tog QWRT>, <&tog SYM>;
         };
 
-        td_scroll_qwrt: td_scroll_qwrt {
+        td_sym_to_toggle: td_sym_to_toggle {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <350>;
-            bindings = <&none>, <&to DEFAULT>;
+            bindings = <&to SYM>, <&tog SYM>;
         };
 
-        hold_scroll_toggle: hold_scroll_toggle {
+        td_scroll_to_toggle: td_scroll_to_toggle {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <350>;
+            bindings = <&to SCROLL>, <&tog SCROLL>;
+        };
+
+        td_fun_to_toggle: td_fun_to_toggle {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <350>;
+            bindings = <&to FUN>, <&tog FUN>;
+        };
+
+        td_blocked_default: td_blocked_default {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <350>;
+            bindings = <&none>, <&to MOUSE>;
+        };
+
+        ht_57_to_sym_hold_trackbless: ht_57_to_sym_hold_trackbless {
             compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
+            #binding-cells = <0>;
             tapping-term-ms = <200>;
             flavor = "hold-preferred";
-            bindings = <&mo>, <&td_scroll_toggle>;
+            bindings = <&tog TRACKBLESS>, <&td_sym_to_toggle>;
         };
 
-        td_fun_toggle: td_fun_toggle {
-            compatible = "zmk,behavior-tap-dance";
-            #binding-cells = <0>;
-            tapping-term-ms = <350>;
-            bindings = <&none>, <&tog FUN>;
-        };
-
-        hold_fun_toggle: hold_fun_toggle {
+        ht_57_qwrt_hold_trackbless: ht_57_qwrt_hold_trackbless {
             compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
+            #binding-cells = <0>;
             tapping-term-ms = <200>;
             flavor = "hold-preferred";
-            bindings = <&mo>, <&td_fun_toggle>;
+            bindings = <&tog TRACKBLESS>, <&td_qwrt_sym_toggle>;
         };
 
-        td_trackbless_space: td_trackbless_space {
-            compatible = "zmk,behavior-tap-dance";
+        ht_57_qwrt_hold_qwrt: ht_57_qwrt_hold_qwrt {
+            compatible = "zmk,behavior-hold-tap";
             #binding-cells = <0>;
-            tapping-term-ms = <350>;
-            bindings = <&kp SPACE>, <&tog TRACKBLESS>;
+            tapping-term-ms = <200>;
+            flavor = "hold-preferred";
+            bindings = <&tog QWRT>, <&td_sym_to_toggle>;
         };
 
-        td_trackbless_toggle: td_trackbless_toggle {
-            compatible = "zmk,behavior-tap-dance";
+        ht_57_tog_qwrt_hold_trackbless: ht_57_tog_qwrt_hold_trackbless {
+            compatible = "zmk,behavior-hold-tap";
             #binding-cells = <0>;
-            tapping-term-ms = <350>;
-            bindings = <&none>, <&tog TRACKBLESS>;
-        };
-
-        td_mouse_qwrt_trackbless: td_mouse_qwrt_trackbless {
-            compatible = "zmk,behavior-tap-dance";
-            #binding-cells = <0>;
-            tapping-term-ms = <350>;
-            bindings = <&to DEFAULT>, <&tog TRACKBLESS>;
+            tapping-term-ms = <200>;
+            flavor = "hold-preferred";
+            bindings = <&tog TRACKBLESS>, <&tog QWRT>;
         };
     };
 
     keymap {
         compatible = "zmk,keymap";
 
-        default_layer {
-            label = "QWRT";
-            bindings = <
-&kp GRAVE       &kp N1     &kp N2        &kp N3        &kp N4  &kp N5                                   &kp N6           &kp N7  &kp N8     &kp N9   &kp N0         &kp BSPC
-&kp TAB         &kp Q      &kp W         &kp E         &kp R   &kp T                                    &kp Y            &kp U   &kp I      &kp O    &kp P          &kp BACKSLASH
-&kp ESC         &kp A      &kp S         &kp D         &kp F   &kp G                                    &kp H            &kp J   &kp K      &kp L    &kp SEMI       &kp SQT
-&kp LEFT_SHIFT  &kp Z      &kp X         &kp C         &kp V   &kp B        &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp N            &kp M   &kp COMMA  &kp DOT  &kp FSLH       &kp RIGHT_SHIFT
-&kp LCTRL       &kp LEFT_WIN  &kp LEFT_ALT  &kp MINUS  &hold_fun_toggle FUN 0  &kp SPACE  &mo SCROLL  &mo SYM  &kp SPACE                                      &kp RIGHT_ALT  &kp ENTER
-            >;
-        };
-
-        number_layer {
-            bindings = <
-&trans  &kp N1    &kp N2    &kp N3  &kp N4     &kp N5                  &kp N6  &kp N7  &kp N8  &kp N9  &kp N0  &trans
-&trans  &trans    &trans    &trans  &trans     &trans                  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &kp LEFT  &kp DOWN  &kp UP  &kp RIGHT  &trans                  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans    &trans    &trans  &trans     &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans    &trans    &trans  &hold_fun_toggle FUN 0  &trans  &trans  &trans  &trans              &trans  &trans
-            >;
-
-            label = "NUM";
-        };
-
-        symbol_layer {
-            label = "SYM";
-            bindings = <
-&trans  &kp EXCLAMATION  &kp AT_SIGN   &kp HASH      &kp DOLLAR    &kp PERCENT                  &kp CARET       &kp AMPERSAND  &kp ASTERISK      &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &trans
-&trans  &trans           &trans        &trans        &trans        &trans                       &trans          &trans         &trans            &trans                &trans                 &trans
-&trans  &bt BT_CLR       &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &trans                       &kp MINUS       &kp EQUAL      &kp LEFT_BRACKET  &kp RIGHT_BRACKET     &trans                 &trans
-&trans  &trans           &trans        &trans        &trans        &trans       &trans  &kp DEL  &kp UNDERSCORE  &kp PLUS       &trans            &trans                &trans                 &trans
-&trans  &trans           &trans        &trans        &hold_fun_toggle FUN 0  &trans       &trans  &trans  &kp ENTER                                                              &trans                 &trans
-            >;
-        };
-
-        function_layer {
-            label = "FUN";
-            bindings = <
-&trans  &trans  &trans   &trans   &trans   &trans                  &kp N9  &kp MINUS  &kp PLUS  &kp ASTERISK  &trans  &trans
-&trans  &kp F1  &kp F2   &kp F3   &kp F4   &trans                  &kp N6  &kp N7     &kp N8    &kp FSLH      &trans  &trans
-&trans  &kp F5  &kp F6   &kp F7   &kp F8   &trans                  &kp N3  &kp N4     &kp N5    &trans        &trans  &trans
-&trans  &kp F9  &kp F10  &kp F11  &kp F12  &trans  &trans  &kp N0  &kp N1  &kp N2  &trans  &kp EQUAL  &trans  &trans
-&trans  &trans  &trans   &trans   &hold_fun_toggle FUN 0  &trans  &trans  &trans  &trans              &trans  &trans
-            >;
-        };
-
         mouse_layer {
             label = "MOUSE";
             bindings = <
-&trans  &trans    &trans    &trans  &trans     &trans                  &kp C_VOL_DN   &kp C_VOL_UP  &kp C_PP  &kp C_PREV  &kp C_NEXT  &trans
-&trans  &trans    &trans    &trans  &trans     &trans                  &trans          &trans          &trans          &kp LC(LG(LEFT))  &kp LC(LG(RIGHT))  &trans
-&trans  &trans    &mkp RCLK  &mkp MCLK  &mkp LCLK   &trans              &kp PAGE_UP    &mkp LCLK   &mkp MCLK   &mkp RCLK   &mo SCROLL  &trans
-&trans  &trans    &trans    &trans  &trans     &trans  &trans  &kp C_BRI_DN  &kp C_BRI_UP  &trans     &trans  &trans     &trans     &trans
-&trans  &trans    &trans    &trans  &hold_fun_toggle FUN 0  &td_trackbless_toggle  &trans  &hold_scroll_toggle SCROLL 0  &td_mouse_qwrt_trackbless          &trans     &trans
-            >;
-        };
-
-        trackbless_layer {
-            label = "TRACKBLESS";
-            bindings = <
-&kp GRAVE       &kp N1     &kp N2        &kp N3        &kp N4  &kp N5                                   &kp N6           &kp N7  &kp N8     &kp N9   &kp N0         &kp BSPC
-&kp TAB         &kp Q      &kp W         &kp E         &kp R   &kp T                                    &kp Y            &kp U   &kp I      &kp O    &kp P          &kp BACKSLASH
-&kp ESC         &kp A      &kp S         &kp D         &kp F   &kp G                                    &kp H            &kp J   &kp K      &kp L    &kp SEMI       &kp SQT
-&kp LEFT_SHIFT  &kp Z      &kp X         &kp C         &kp V   &kp B        &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp N            &kp M   &kp COMMA  &kp DOT  &kp FSLH       &kp RIGHT_SHIFT
-&kp LCTRL       &kp LEFT_WIN  &kp LEFT_ALT  &kp MINUS  &hold_fun_toggle FUN 0  &kp SPACE  &hold_scroll_toggle SCROLL 0  &hold_scroll_toggle SYM 0  &kp SPACE                  &kp RIGHT_ALT  &kp ENTER
+&none  &none     &none     &none  &none     &none                  &kp C_VOL_DN   &kp C_VOL_UP  &kp C_PP   &kp C_PREV  &kp C_NEXT  &none
+&none  &none     &none     &none  &none     &none                  &none          &none         &none      &kp LC(LG(LEFT))  &kp LC(LG(RIGHT))  &none
+&none  &none     &mkp RCLK  &mkp MCLK  &mkp LCLK  &none            &kp PAGE_UP    &mkp LCLK     &mkp MCLK  &mkp RCLK  &td_scroll_to_toggle  &none
+&none  &none     &none     &none  &none     &none  &none  &kp C_BRI_DN  &kp C_BRI_UP  &none  &none  &none  &none  &none
+&none  &none     &none     &none  &td_fun_to_toggle  &none  &td_scroll_to_toggle  &ht_57_qwrt_hold_trackbless  &none                  &none  &none
             >;
         };
 
         snipe_layer {
             label = "SNIPE";
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans                  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans                  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans                  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &hold_fun_toggle FUN 0  &trans  &trans  &trans  &trans              &trans  &trans
+&none  &none  &none  &none  &none  &none                  &none  &none  &none  &none  &none  &none
+&none  &none  &none  &none  &none  &none                  &none  &none  &none  &none  &none  &none
+&none  &none  &none  &none  &none  &none                  &none  &none  &none  &none  &none  &none
+&none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none
+&none  &none  &none  &none  &td_fun_to_toggle  &none  &td_scroll_to_toggle  &ht_57_tog_qwrt_hold_trackbless  &none              &none  &none
+            >;
+        };
+
+        symbol_layer {
+            label = "SYM";
+            bindings = <
+&none  &kp EXCLAMATION  &kp AT_SIGN   &kp HASH      &kp DOLLAR    &kp PERCENT                  &kp CARET       &kp AMPERSAND  &kp ASTERISK      &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &none
+&none  &none            &none         &none         &none         &none                        &none           &none          &none             &none                 &none                  &none
+&none  &bt BT_CLR       &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &none                        &kp MINUS       &kp EQUAL      &kp LEFT_BRACKET  &kp RIGHT_BRACKET     &none                  &none
+&none  &none            &none         &none         &none         &none       &none  &kp DEL   &kp UNDERSCORE  &kp PLUS       &none             &none                 &none                  &none
+&none  &none            &none         &none         &td_fun_to_toggle  &kp ENTER  &td_scroll_to_toggle  &ht_57_tog_qwrt_hold_trackbless  &kp ENTER                                                            &none                  &none
+            >;
+        };
+
+        function_layer {
+            label = "FUN";
+            bindings = <
+&to BLOCKED  &tog SNIPE  &none   &none   &none   &none                  &kp PLUS  &kp MINUS  &kp ASTERISK  &kp FSLH  &none  &none
+&none        &none       &none   &none   &none   &email_rodrigo         &kp N7    &kp N8     &kp N9        &kp EQUAL &none  &none
+&none        &none       &none   &none   &none   &none                  &kp N4    &kp N5     &kp N6        &none     &none  &none
+&none        &none       &none   &none   &none   &none  &none  &kp N0  &kp N1  &kp N2  &kp N3  &none  &none  &none
+&none        &none       &none   &none   &td_fun_to_toggle  &none  &td_scroll_to_toggle  &ht_57_qwrt_hold_trackbless  &none              &none  &none
             >;
         };
 
         scroll_layer {
             label = "SCROLL";
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans                  &trans  &trans  &trans  &trans  &trans  &kp DEL
-&trans  &trans  &trans  &trans  &trans  &trans                  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans                  &trans  &trans  &trans  &trans  &kp UP  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &kp DEL  &trans  &trans  &trans  &kp LEFT  &kp DOWN  &kp RIGHT
-&trans  &trans  &trans  &trans  &hold_fun_toggle FUN 0  &td_trackbless_toggle  &trans  &td_scroll_qwrt  &td_trackbless_toggle              &trans  &trans
+&none  &none  &none  &none  &none  &none                  &none  &none  &none  &none  &none  &kp DEL
+&none  &none  &none  &none  &none  &none                  &none  &none  &none  &none  &none  &none
+&none  &none  &none  &none  &none  &none                  &none  &none  &none  &none  &kp UP  &none
+&none  &none  &none  &none  &none  &none  &none  &kp DEL  &none  &none  &none  &kp LEFT  &kp DOWN  &kp RIGHT
+&none  &none  &none  &none  &td_fun_to_toggle  &kp ENTER  &none  &ht_57_qwrt_hold_trackbless  &kp ENTER              &none  &none
+            >;
+        };
+
+        trackbless_layer {
+            label = "TRACKBLESS";
+            bindings = <
+&kp GRAVE       &kp N1        &kp N2        &kp N3        &kp N4  &kp N5                                   &kp N6           &kp N7  &kp N8     &kp N9   &kp N0         &kp BSPC
+&kp TAB         &kp Q         &kp W         &kp E         &kp R   &kp T                                    &kp Y            &kp U   &kp I      &kp O    &kp P          &kp BACKSLASH
+&kp ESC         &kp A         &kp S         &kp D         &kp F   &kp G                                    &kp H            &kp J   &kp K      &kp L    &kp SEMI       &kp SQT
+&kp LEFT_SHIFT  &kp Z         &kp X         &kp C         &kp V   &kp B        &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp N            &kp M   &kp COMMA  &kp DOT  &kp FSLH       &kp RIGHT_SHIFT
+&kp LCTRL       &kp LEFT_WIN  &kp LEFT_ALT  &kp MINUS     &td_fun_to_toggle  &kp SPACE  &td_scroll_to_toggle  &ht_57_qwrt_hold_qwrt  &kp SPACE                  &kp RIGHT_ALT  &kp ENTER
+            >;
+        };
+
+        qwrt_layer {
+            label = "QWRT";
+            bindings = <
+&kp GRAVE       &kp N1        &kp N2        &kp N3        &kp N4  &kp N5                                   &kp N6           &kp N7  &kp N8     &kp N9   &kp N0         &kp BSPC
+&kp TAB         &kp Q         &kp W         &kp E         &kp R   &kp T                                    &kp Y            &kp U   &kp I      &kp O    &kp P          &kp BACKSLASH
+&kp ESC         &kp A         &kp S         &kp D         &kp F   &kp G                                    &kp H            &kp J   &kp K      &kp L    &kp SEMI       &kp SQT
+&kp LEFT_SHIFT  &kp Z         &kp X         &kp C         &kp V   &kp B        &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp N            &kp M   &kp COMMA  &kp DOT  &kp FSLH       &kp RIGHT_SHIFT
+&kp LCTRL       &kp LEFT_WIN  &kp LEFT_ALT  &kp MINUS     &td_fun_to_toggle  &kp SPACE  &td_scroll_to_toggle  &ht_57_to_sym_hold_trackbless  &kp SPACE                  &kp RIGHT_ALT  &kp ENTER
+            >;
+        };
+
+        blocked_layer {
+            label = "BLOCKED";
+            bindings = <
+&none  &none  &none  &none  &none  &none                  &none  &none  &none  &none  &none  &none
+&none  &none  &none  &none  &none  &none                  &none  &none  &none  &none  &none  &none
+&none  &none  &none  &none  &none  &none                  &none  &none  &none  &none  &none  &none
+&none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none
+&none  &none  &none  &none  &none  &none  &td_blocked_default  &td_blocked_default  &none              &none  &none
             >;
         };
     };

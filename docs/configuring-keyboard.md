@@ -243,35 +243,37 @@ Ejemplos:
 Las capas estan definidas al inicio de `config/keyball61.keymap`:
 
 ```c
-#define DEFAULT 0
-#define NUM     1
-#define SYM     2
-#define FUN     3
-#define MOUSE   4
+#define MOUSE      0
+#define SNIPE      1
+#define SYM        2
+#define FUN        3
+#define SCROLL     4
 #define TRACKBLESS 5
-#define SNIPE   6
-#define SCROLL  7
+#define QWRT       6
+#define BLOCKED    7
 ```
 
 La numeracion importa porque algunos nodos de hardware, como el PMW3610, referencian capas por numero:
 
 ```c
-scroll-layers = <7>;
-snipe-layers = <6>;
+automouse-layer = <0>;
+scroll-layers = <4>;
+snipe-layers = <1>;
 ```
 
-Por eso, si se reordena o renumera `SCROLL`, `SNIPE` o `TRACKBLESS`, tambien debe actualizarse `keyball61_right.overlay`.
+Por eso, si se reordena o renumera `MOUSE`, `SCROLL`, `SNIPE`, `TRACKBLESS` o
+`BLOCKED`, tambien debe actualizarse `keyball61_right.overlay`.
 
 | Layer | Funcion conceptual | Donde se modifica |
 | --- | --- | --- |
-| `DEFAULT` / `QWRT` | Escritura normal y accesos principales a otras capas. | `config/keyball61.keymap` |
-| `NUM` | Numeros y navegacion simple. | `config/keyball61.keymap` |
+| `MOUSE` | Layer base y destino de automouse por movimiento del trackball. | `config/keyball61.keymap` y `keyball61_right.overlay` |
+| `SNIPE` | Capa que el driver interpreta como modo de precision. | `config/keyball61.keymap` y `keyball61_right.conf` |
 | `SYM` | Simbolos, teclado numerico parcial y controles Bluetooth. | `config/keyball61.keymap` |
 | `FUN` | Teclas F1-F12 y macros. | `config/keyball61.keymap` |
-| `MOUSE` | Botones de mouse, navegacion, multimedia y acceso a scroll. | `config/keyball61.keymap` |
 | `SCROLL` | Capa que el driver PMW3610 interpreta como modo scroll. | `config/keyball61.keymap` y `keyball61_right.overlay` |
-| `SNIPE` | Capa que el driver interpreta como modo de precision. | `config/keyball61.keymap` y `keyball61_right.conf` |
 | `TRACKBLESS` | Capa equivalente a `QWRT` con trackball bloqueado. | `config/keyball61.keymap` y `keyball61_right.overlay` |
+| `QWRT` | Escritura normal y accesos principales a otras capas. | `config/keyball61.keymap` |
+| `BLOCKED` | Bloqueo completo de teclas y trackball, con salida por doble tap. | `config/keyball61.keymap` y `keyball61_right.overlay` |
 
 ## Comportamientos ZMK usados en este repo
 
@@ -314,9 +316,9 @@ Usar `&tog` para modos que conviene dejar activos sin mantener una tecla presion
 
 ### To layer: `&to`
 
-`&to LOCK` cambia a una capa concreta y desactiva otras capas no permanentes, conservando la capa base.
+`&to BLOCKED` cambia a una capa concreta y desactiva otras capas no permanentes, conservando la capa base.
 
-En este repo se usa para entrar y salir de `LOCK` mediante combos.
+En este repo se usa para entrar a `BLOCKED` desde `FUN`.
 
 ### Layer-tap: `&lt`
 
@@ -383,64 +385,57 @@ Lectura:
 
 Esto permite que una sola posicion sirva tanto para acceso momentaneo como para modo persistente.
 
-### Tap-dance: `td_scroll_toggle`
+### Tap-dance: `td_scroll_to_toggle`
 
 ```c
-td_scroll_toggle: td_scroll_toggle {
+td_scroll_to_toggle: td_scroll_to_toggle {
     compatible = "zmk,behavior-tap-dance";
     #binding-cells = <0>;
     tapping-term-ms = <350>;
-    bindings = <&none>, <&tog SCROLL>;
+    bindings = <&to SCROLL>, <&tog SCROLL>;
 };
 ```
 
 Lectura:
 
-- un tap: `&none`, no hace nada.
-- dos taps dentro de 350 ms: `&tog SCROLL`.
+- un tap: cambia a `SCROLL`.
+- dos taps dentro de 350 ms: toggle de `SCROLL`.
 
-Esto evita activar `SCROLL` accidentalmente con un solo toque.
-
-### Tap-dance: `td_scroll_qwrt`
+### Tap-dance: `td_qwrt_sym_toggle`
 
 ```c
-td_scroll_qwrt: td_scroll_qwrt {
+td_qwrt_sym_toggle: td_qwrt_sym_toggle {
     compatible = "zmk,behavior-tap-dance";
     #binding-cells = <0>;
     tapping-term-ms = <350>;
-    bindings = <&none>, <&to DEFAULT>;
+    bindings = <&tog QWRT>, <&tog SYM>;
 };
 ```
 
 Lectura:
 
-- un tap: `&none`, no hace nada.
-- dos taps dentro de 350 ms: `&to DEFAULT`.
+- un tap: toggle de `QWRT`.
+- dos taps dentro de 350 ms: toggle de `SYM`.
 
-Esto permite salir de `SCROLL` y volver a `QWRT` desde la posicion 57.
+Se usa en la posicion 57 de capas auxiliares para alternar entre escritura y
+simbolos.
 
-### Hold-tap custom: `hold_scroll_toggle`
+### Hold-tap custom: `ht_57_qwrt_hold_trackbless`
 
 ```c
-hold_scroll_toggle: hold_scroll_toggle {
+ht_57_qwrt_hold_trackbless: ht_57_qwrt_hold_trackbless {
     compatible = "zmk,behavior-hold-tap";
-    #binding-cells = <2>;
+    #binding-cells = <0>;
     tapping-term-ms = <200>;
     flavor = "hold-preferred";
-    bindings = <&mo>, <&td_scroll_toggle>;
+    bindings = <&tog TRACKBLESS>, <&td_qwrt_sym_toggle>;
 };
-```
-
-Uso actual:
-
-```c
-&hold_scroll_toggle SCROLL 0
 ```
 
 Lectura:
 
-- hold: activa `SCROLL` momentaneamente mediante `&mo SCROLL`.
-- tap: llama a `td_scroll_toggle`; por diseno, se necesita doble tap para alternar `SCROLL`.
+- hold: toggle de `TRACKBLESS`.
+- tap: ejecuta `td_qwrt_sym_toggle`.
 
 ### Mouse: `&mkp`, `&mmv`, `&msc`
 
@@ -500,11 +495,11 @@ Los combos se definen fuera del nodo `keymap` porque ZMK los procesa antes del k
 Ejemplo:
 
 ```c
-combo_mouse_lock {
+combo_mouse_blocked {
     timeout-ms = <80>;
     key-positions = <54 58>;
     layers = <MOUSE>;
-    bindings = <&to LOCK>;
+    bindings = <&to BLOCKED>;
 };
 ```
 
@@ -515,14 +510,7 @@ Campos importantes:
 - `layers`: capas donde el combo existe.
 - `bindings`: comportamiento que se ejecuta.
 
-Combos actuales:
-
-| Combo | Posiciones | Layer | Resultado |
-| --- | --- | --- | --- |
-| `combo_left_shift_backspace_delete` | `36 11` | `DEFAULT` | `DEL` |
-| `combo_right_shift_backspace_delete` | `49 11` | `DEFAULT` | `DEL` |
-| `combo_mouse_lock` | `54 58` | `MOUSE` | `&to LOCK` |
-| `combo_unlock` | `54 58` | `LOCK` | `&to DEFAULT` |
+Actualmente `config/keyball61.keymap` no define combos.
 
 ## Trackball PMW3610
 
@@ -678,7 +666,7 @@ Agregar en el nodo `combos`:
 combo_escape {
     timeout-ms = <80>;
     key-positions = <0 1>;
-    layers = <DEFAULT>;
+    layers = <QWRT>;
     bindings = <&kp ESC>;
 };
 ```
@@ -698,11 +686,11 @@ CONFIG_PMW3610_CPI=1200
 Actualizar los `#define` de `config/keyball61.keymap` y tambien `scroll-layers` en `keyball61_right.overlay`.
 
 ```c
-#define SCROLL 7
+#define SCROLL 4
 ```
 
 ```c
-scroll-layers = <7>;
+scroll-layers = <4>;
 ```
 
 Ambos deben coincidir.
@@ -712,11 +700,11 @@ Ambos deben coincidir.
 Actualizar `SNIPE` y `snipe-layers`:
 
 ```c
-#define SNIPE 6
+#define SNIPE 1
 ```
 
 ```c
-snipe-layers = <6>;
+snipe-layers = <1>;
 ```
 
 Y ajustar sensibilidad en `keyball61_right.conf`:

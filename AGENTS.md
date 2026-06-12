@@ -13,6 +13,8 @@ Configure and compile zmk firmware for the Keyball61 bluetooth keyboard.
 - Use github actions to compile firmware and build svg.
 - Do not compile anything locally.
 - Do not install tools without approval.
+- Do not review the generated SVG image.
+- Do not review commits.
 - Check git status before editing.
 - Keep diffs small and reviewable.
 

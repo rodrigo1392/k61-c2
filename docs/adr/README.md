@@ -23,3 +23,5 @@ No todo cambio de keymap necesita ADR. En particular, los commits automaticos `[
 | [0013](0013-priorizar-scroll-sobre-trackbless.md) | Priorizar `SCROLL` sobre `TRACKBLESS` para salir del modo bloqueado. | pendiente |
 | [0014](0014-ajustar-salida-mouse-scroll.md) | Ajustar acceso a `SCROLL` desde `MOUSE` y salida a `QWRT`. | pendiente |
 | [0015](0015-ajustar-fun-numerico-y-scroll-mouse.md) | Ajustar `FUN` numerico y acceso a `SCROLL` desde `MOUSE`. | pendiente |
+| [0016](0016-eliminar-layer-num.md) | Eliminar `NUM` y renumerar layers activos. | pendiente |
+| [0017](0017-reorganizar-layers-automouse-y-blocked.md) | Reorganizar layers, automouse y bloqueo total. | pendiente |
