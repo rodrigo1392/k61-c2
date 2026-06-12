@@ -58,7 +58,7 @@ layers:
   - '&td_fun_to_toggle'
   - {t: '$$mdi:minus-circle-outline$$', type: none}
   - '&td_scroll_to_toggle'
-  - '&ht_57_qwrt_hold_trackbless'
+  - {t: '&td_qwrt_sym_toggle', h: TRACKBLESS}
   - {t: '$$mdi:minus-circle-outline$$', type: none}
   - {t: '$$mdi:minus-circle-outline$$', type: none}
   - {t: '$$mdi:minus-circle-outline$$', type: none}
@@ -120,7 +120,7 @@ layers:
   - '&td_fun_to_toggle'
   - {t: '$$mdi:minus-circle-outline$$', type: none}
   - '&td_scroll_to_toggle'
-  - '&ht_57_tog_qwrt_hold_trackbless'
+  - {t: QWRT, h: TRACKBLESS}
   - {t: '$$mdi:minus-circle-outline$$', type: none}
   - {t: '$$mdi:minus-circle-outline$$', type: none}
   - {t: '$$mdi:minus-circle-outline$$', type: none}
@@ -182,7 +182,7 @@ layers:
   - '&td_fun_to_toggle'
   - {t: '$$mdi:keyboard-return$$', type: enter}
   - '&td_scroll_to_toggle'
-  - '&ht_57_tog_qwrt_hold_trackbless'
+  - {t: QWRT, h: TRACKBLESS}
   - {t: '$$mdi:keyboard-return$$', type: enter}
   - {t: '$$mdi:minus-circle-outline$$', type: none}
   - {t: '$$mdi:minus-circle-outline$$', type: none}
@@ -244,7 +244,7 @@ layers:
   - '&td_fun_to_toggle'
   - {t: '$$mdi:minus-circle-outline$$', type: none}
   - '&td_scroll_to_toggle'
-  - '&ht_57_qwrt_hold_trackbless'
+  - {t: '&td_qwrt_sym_toggle', h: TRACKBLESS}
   - {t: '$$mdi:minus-circle-outline$$', type: none}
   - {t: '$$mdi:minus-circle-outline$$', type: none}
   - {t: '$$mdi:minus-circle-outline$$', type: none}
@@ -306,7 +306,7 @@ layers:
   - '&td_fun_to_toggle'
   - {t: '$$mdi:keyboard-return$$', type: enter}
   - {t: '$$mdi:minus-circle-outline$$', type: none}
-  - '&ht_57_qwrt_hold_trackbless'
+  - {t: '&td_qwrt_sym_toggle', h: TRACKBLESS}
   - {t: '$$mdi:keyboard-return$$', type: enter}
   - {t: '$$mdi:minus-circle-outline$$', type: none}
   - {t: '$$mdi:minus-circle-outline$$', type: none}
@@ -368,7 +368,7 @@ layers:
   - '&td_fun_to_toggle'
   - $$mdi:keyboard-space$$
   - '&td_scroll_to_toggle'
-  - '&ht_57_qwrt_hold_qwrt'
+  - {t: '&td_sym_to_toggle', h: QWRT}
   - $$mdi:keyboard-space$$
   - $$mdi:apple-keyboard-option$$
   - {t: '$$mdi:keyboard-return$$', type: enter}
@@ -430,7 +430,7 @@ layers:
   - '&td_fun_to_toggle'
   - $$mdi:keyboard-space$$
   - '&td_scroll_to_toggle'
-  - '&ht_57_to_sym_hold_trackbless'
+  - {t: '&td_sym_to_toggle', h: TRACKBLESS}
   - $$mdi:keyboard-space$$
   - $$mdi:apple-keyboard-option$$
   - {t: '$$mdi:keyboard-return$$', type: enter}

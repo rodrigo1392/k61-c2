@@ -574,8 +574,10 @@ rect.held, rect.combo.held {
 <g transform="translate(513, 305) rotate(-25.0)" class="key keypos-57">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key side"/>
 <rect rx="4" ry="4" x="-20" y="-24" width="40" height="40" class="key"/>
-<text x="0" y="-4" class="key tap"><tspan style="font-size: 60%">&amp;ht_57_qw…</tspan></text>
-</g>
+<text x="0" y="-4" class="key tap"><tspan style="font-size: 60%">&amp;td_qwrt_…</tspan></text>
+<a href="#TRACKBLESS">
+<text x="0" y="24" class="key hold layer-activator"><tspan style="font-size: 60%">TRACKBLESS</tspan></text>
+</a></g>
 <g transform="translate(568, 287) rotate(-10.0)" class="key none keypos-58">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key none side"/>
 <rect rx="4" ry="4" x="-20" y="-24" width="40" height="40" class="key none"/>
@@ -884,8 +886,11 @@ rect.held, rect.combo.held {
 <g transform="translate(513, 305) rotate(-25.0)" class="key keypos-57">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key side"/>
 <rect rx="4" ry="4" x="-20" y="-24" width="40" height="40" class="key"/>
-<text x="0" y="-4" class="key tap"><tspan style="font-size: 60%">&amp;ht_57_to…</tspan></text>
-</g>
+<a href="#QWRT">
+<text x="0" y="-4" class="key tap layer-activator">QWRT</text>
+</a><a href="#TRACKBLESS">
+<text x="0" y="24" class="key hold layer-activator"><tspan style="font-size: 60%">TRACKBLESS</tspan></text>
+</a></g>
 <g transform="translate(568, 287) rotate(-10.0)" class="key none keypos-58">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key none side"/>
 <rect rx="4" ry="4" x="-20" y="-24" width="40" height="40" class="key none"/>
@@ -1201,8 +1206,11 @@ rect.held, rect.combo.held {
 <g transform="translate(513, 305) rotate(-25.0)" class="key keypos-57">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key side"/>
 <rect rx="4" ry="4" x="-20" y="-24" width="40" height="40" class="key"/>
-<text x="0" y="-4" class="key tap"><tspan style="font-size: 60%">&amp;ht_57_to…</tspan></text>
-</g>
+<a href="#QWRT">
+<text x="0" y="-4" class="key tap layer-activator">QWRT</text>
+</a><a href="#TRACKBLESS">
+<text x="0" y="24" class="key hold layer-activator"><tspan style="font-size: 60%">TRACKBLESS</tspan></text>
+</a></g>
 <g transform="translate(568, 287) rotate(-10.0)" class="key enter keypos-58">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key enter side"/>
 <rect rx="4" ry="4" x="-20" y="-24" width="40" height="40" class="key enter"/>
@@ -1528,8 +1536,10 @@ rect.held, rect.combo.held {
 <g transform="translate(513, 305) rotate(-25.0)" class="key keypos-57">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key side"/>
 <rect rx="4" ry="4" x="-20" y="-24" width="40" height="40" class="key"/>
-<text x="0" y="-4" class="key tap"><tspan style="font-size: 60%">&amp;ht_57_qw…</tspan></text>
-</g>
+<text x="0" y="-4" class="key tap"><tspan style="font-size: 60%">&amp;td_qwrt_…</tspan></text>
+<a href="#TRACKBLESS">
+<text x="0" y="24" class="key hold layer-activator"><tspan style="font-size: 60%">TRACKBLESS</tspan></text>
+</a></g>
 <g transform="translate(568, 287) rotate(-10.0)" class="key none keypos-58">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key none side"/>
 <rect rx="4" ry="4" x="-20" y="-24" width="40" height="40" class="key none"/>
@@ -1838,8 +1848,10 @@ rect.held, rect.combo.held {
 <g transform="translate(513, 305) rotate(-25.0)" class="key keypos-57">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key side"/>
 <rect rx="4" ry="4" x="-20" y="-24" width="40" height="40" class="key"/>
-<text x="0" y="-4" class="key tap"><tspan style="font-size: 60%">&amp;ht_57_qw…</tspan></text>
-</g>
+<text x="0" y="-4" class="key tap"><tspan style="font-size: 60%">&amp;td_qwrt_…</tspan></text>
+<a href="#TRACKBLESS">
+<text x="0" y="24" class="key hold layer-activator"><tspan style="font-size: 60%">TRACKBLESS</tspan></text>
+</a></g>
 <g transform="translate(568, 287) rotate(-10.0)" class="key enter keypos-58">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key enter side"/>
 <rect rx="4" ry="4" x="-20" y="-24" width="40" height="40" class="key enter"/>
@@ -2170,8 +2182,10 @@ rect.held, rect.combo.held {
 <g transform="translate(513, 305) rotate(-25.0)" class="key keypos-57">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key side"/>
 <rect rx="4" ry="4" x="-20" y="-24" width="40" height="40" class="key"/>
-<text x="0" y="-4" class="key tap"><tspan style="font-size: 60%">&amp;ht_57_qw…</tspan></text>
-</g>
+<text x="0" y="-4" class="key tap"><tspan style="font-size: 60%">&amp;td_sym_t…</tspan></text>
+<a href="#QWRT">
+<text x="0" y="24" class="key hold layer-activator">QWRT</text>
+</a></g>
 <g transform="translate(568, 287) rotate(-10.0)" class="key keypos-58">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key side"/>
 <rect rx="4" ry="4" x="-20" y="-24" width="40" height="40" class="key"/>
@@ -2502,8 +2516,10 @@ rect.held, rect.combo.held {
 <g transform="translate(513, 305) rotate(-25.0)" class="key keypos-57">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key side"/>
 <rect rx="4" ry="4" x="-20" y="-24" width="40" height="40" class="key"/>
-<text x="0" y="-4" class="key tap"><tspan style="font-size: 60%">&amp;ht_57_to…</tspan></text>
-</g>
+<text x="0" y="-4" class="key tap"><tspan style="font-size: 60%">&amp;td_sym_t…</tspan></text>
+<a href="#TRACKBLESS">
+<text x="0" y="24" class="key hold layer-activator"><tspan style="font-size: 60%">TRACKBLESS</tspan></text>
+</a></g>
 <g transform="translate(568, 287) rotate(-10.0)" class="key keypos-58">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key side"/>
 <rect rx="4" ry="4" x="-20" y="-24" width="40" height="40" class="key"/>
