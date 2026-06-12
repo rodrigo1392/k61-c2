@@ -55,9 +55,9 @@ layers:
   - LEFT WIN
   - $$mdi:apple-keyboard-option$$
   - {t: '-', s: _}
-  - '&td_fun_to_toggle'
+  - {t: '&td_fun_toggle', h: FUN}
   - $$mdi:keyboard-space$$
-  - '&td_scroll_to_toggle'
+  - {t: '&td_scroll_toggle', h: SCROLL}
   - {t: '&td_sym_to_toggle', h: TRACKBLESS}
   - $$mdi:keyboard-space$$
   - $$mdi:apple-keyboard-option$$
@@ -117,9 +117,9 @@ layers:
   - {t: '$$mdi:minus-circle-outline$$', type: none}
   - {t: '$$mdi:minus-circle-outline$$', type: none}
   - {t: '$$mdi:minus-circle-outline$$', type: none}
-  - '&td_fun_to_toggle'
+  - {t: '&td_fun_toggle', h: FUN}
   - {t: '$$mdi:minus-circle-outline$$', type: none}
-  - '&td_scroll_to_toggle'
+  - {t: '&td_scroll_toggle', h: SCROLL}
   - {t: QWRT, h: TRACKBLESS}
   - {t: '$$mdi:minus-circle-outline$$', type: none}
   - {t: '$$mdi:minus-circle-outline$$', type: none}
@@ -179,9 +179,9 @@ layers:
   - {t: '$$mdi:minus-circle-outline$$', type: none}
   - {t: '$$mdi:minus-circle-outline$$', type: none}
   - {t: '$$mdi:minus-circle-outline$$', type: none}
-  - '&td_fun_to_toggle'
+  - {t: '&td_fun_toggle', h: FUN}
   - {t: '$$mdi:keyboard-return$$', type: enter}
-  - '&td_scroll_to_toggle'
+  - {t: '&td_scroll_toggle', h: SCROLL}
   - {t: QWRT, h: TRACKBLESS}
   - {t: '$$mdi:keyboard-return$$', type: enter}
   - {t: '$$mdi:minus-circle-outline$$', type: none}
@@ -200,10 +200,10 @@ layers:
   - {t: '$$mdi:minus-circle-outline$$', type: none}
   - {t: '$$mdi:minus-circle-outline$$', type: none}
   - {t: '$$mdi:minus-circle-outline$$', type: none}
-  - {t: '$$mdi:minus-circle-outline$$', type: none}
-  - {t: '$$mdi:minus-circle-outline$$', type: none}
-  - {t: '$$mdi:minus-circle-outline$$', type: none}
-  - {t: '$$mdi:minus-circle-outline$$', type: none}
+  - F1
+  - F2
+  - F3
+  - F4
   - '&email_rodrigo'
   - {t: '7', s: '&'}
   - {t: '8', s: '*'}
@@ -212,10 +212,10 @@ layers:
   - {t: '$$mdi:minus-circle-outline$$', type: none}
   - {t: '$$mdi:minus-circle-outline$$', type: none}
   - {t: '$$mdi:minus-circle-outline$$', type: none}
-  - {t: '$$mdi:minus-circle-outline$$', type: none}
-  - {t: '$$mdi:minus-circle-outline$$', type: none}
-  - {t: '$$mdi:minus-circle-outline$$', type: none}
-  - {t: '$$mdi:minus-circle-outline$$', type: none}
+  - F5
+  - F6
+  - F7
+  - F8
   - {t: '$$mdi:minus-circle-outline$$', type: none}
   - {t: '4', s: $}
   - {t: '5', s: '%'}
@@ -224,10 +224,10 @@ layers:
   - {t: '$$mdi:minus-circle-outline$$', type: none}
   - {t: '$$mdi:minus-circle-outline$$', type: none}
   - {t: '$$mdi:minus-circle-outline$$', type: none}
-  - {t: '$$mdi:minus-circle-outline$$', type: none}
-  - {t: '$$mdi:minus-circle-outline$$', type: none}
-  - {t: '$$mdi:minus-circle-outline$$', type: none}
-  - {t: '$$mdi:minus-circle-outline$$', type: none}
+  - F9
+  - F10
+  - F11
+  - F12
   - {t: '$$mdi:minus-circle-outline$$', type: none}
   - {t: '$$mdi:minus-circle-outline$$', type: none}
   - {t: '0', s: )}
@@ -241,9 +241,9 @@ layers:
   - {t: '$$mdi:minus-circle-outline$$', type: none}
   - {t: '$$mdi:minus-circle-outline$$', type: none}
   - {t: '$$mdi:minus-circle-outline$$', type: none}
-  - '&td_fun_to_toggle'
+  - {t: '&td_fun_toggle', h: FUN, type: held}
   - {t: '$$mdi:minus-circle-outline$$', type: none}
-  - '&td_scroll_to_toggle'
+  - {t: '&td_scroll_toggle', h: SCROLL}
   - {t: '&td_qwrt_sym_toggle', h: TRACKBLESS}
   - {t: '$$mdi:minus-circle-outline$$', type: none}
   - {t: '$$mdi:minus-circle-outline$$', type: none}
@@ -303,9 +303,9 @@ layers:
   - {t: '$$mdi:minus-circle-outline$$', type: none}
   - {t: '$$mdi:minus-circle-outline$$', type: none}
   - {t: '$$mdi:minus-circle-outline$$', type: none}
-  - '&td_fun_to_toggle'
+  - {t: '&td_fun_toggle', h: FUN, type: held alternate}
   - {t: '$$mdi:keyboard-return$$', type: enter}
-  - {t: '$$mdi:minus-circle-outline$$', type: none}
+  - {t: '$$mdi:minus-circle-outline$$', type: held}
   - {t: '&td_qwrt_sym_toggle', h: TRACKBLESS}
   - {t: '$$mdi:keyboard-return$$', type: enter}
   - {t: '$$mdi:minus-circle-outline$$', type: none}
@@ -365,9 +365,9 @@ layers:
   - LEFT WIN
   - $$mdi:apple-keyboard-option$$
   - {t: '-', s: _}
-  - '&td_fun_to_toggle'
+  - {t: '&td_fun_toggle', h: FUN}
   - $$mdi:keyboard-space$$
-  - '&td_scroll_to_toggle'
+  - {t: '&td_scroll_toggle', h: SCROLL}
   - {t: '&td_sym_to_toggle', h: QWRT}
   - $$mdi:keyboard-space$$
   - $$mdi:apple-keyboard-option$$
@@ -395,7 +395,7 @@ layers:
   - Ctl+Gui+$$mdi:arrow-right-bold$$
   - {t: '$$mdi:minus-circle-outline$$', type: none}
   - {t: '$$mdi:minus-circle-outline$$', type: none}
-  - '&td_scroll_to_toggle'
+  - {t: '&td_scroll_toggle', h: SCROLL}
   - {t: '$$mdi:minus-circle-outline$$', type: none}
   - {t: '$$mdi:minus-circle-outline$$', type: none}
   - {t: '$$mdi:minus-circle-outline$$', type: none}
@@ -427,11 +427,11 @@ layers:
   - {t: '$$mdi:minus-circle-outline$$', type: none}
   - {t: '$$mdi:minus-circle-outline$$', type: none}
   - {t: '$$mdi:minus-circle-outline$$', type: none}
-  - '&td_fun_to_toggle'
+  - {t: '&td_fun_toggle', h: FUN}
   - {t: '$$mdi:minus-circle-outline$$', type: none}
-  - '&td_scroll_to_toggle'
+  - {t: '&td_scroll_toggle', h: SCROLL}
+  - {t: '&td_sym_toggle', h: SYM}
   - {t: '&td_qwrt_sym_toggle', h: TRACKBLESS}
-  - {t: '$$mdi:minus-circle-outline$$', type: none}
   - {t: '$$mdi:minus-circle-outline$$', type: none}
   - {t: '$$mdi:minus-circle-outline$$', type: none}
   BLOCKED:
