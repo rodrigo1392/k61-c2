@@ -230,7 +230,7 @@ layers:
   - Ctl+V
   - {t: '$$mdi:minus-circle-outline$$', type: none}
   - {t: '$$mdi:minus-circle-outline$$', type: none}
-  - BRI DOWN
+  - $$mdi:brightness-7$$
   - $$mdi:brightness-5$$
   - {t: '$$mdi:minus-circle-outline$$', type: none}
   - {t: '$$mdi:minus-circle-outline$$', type: none}
