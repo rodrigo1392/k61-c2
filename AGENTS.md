@@ -47,6 +47,32 @@ Important files:
 - config/*.overlay
 - build.yaml
 
+Firmware behavior quick path:
+
+- Always read `config/keyball61.keymap` before changing key behavior. It defines
+  layer numbers, layer order, behaviors, macros, and key bindings.
+- Read `config/boards/shields/keyball61/keyball61_right.overlay` when changing
+  trackball behavior or layer numbers. It references layer numbers for
+  `automouse-layer`, `scroll-layers`, `snipe-layers`, and `trackball_lock`.
+- Read `config/boards/shields/keyball61/keyball61_right.conf` when changing
+  PMW3610, mouse, studio, power, sleep, or polling behavior.
+- Read `config/keyball61.conf` when changing shared ZMK, Bluetooth, split,
+  display, behavior queue, or power behavior.
+- Read `build.yaml` when changing which firmware artifacts GitHub Actions
+  builds.
+- Usually do not read `vault/`, generated SVG files, or historical docs unless
+  the user asks for history or a previous firmware artifact.
+
+Firmware behavior edit checklist:
+
+- Keep layer `#define` values consistent with the order of layer nodes inside
+  `config/keyball61.keymap`.
+- When renumbering `MOUSE`, `SCROLL`, `SNIPE`, `TRACKBLESS`, or `BLOCKED`,
+  update matching numeric references in
+  `config/boards/shields/keyball61/keyball61_right.overlay`.
+- After edits, check every layer still has 61 bindings.
+- Do not compile locally; use GitHub Actions for build validation.
+
 ## Script Style
 
 If Python or Bash scripts are modified:

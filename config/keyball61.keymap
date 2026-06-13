@@ -1,8 +1,8 @@
 #define QWRT       0
 #define TRACKBLESS 1
 #define SYM        2
-#define FUN        3
-#define MOUSE      4
+#define MOUSE      3
+#define FUN        4
 #define SCROLL     5
 #define SNIPE      6
 #define BLOCKED    7
@@ -23,7 +23,7 @@
     tapping-term-ms = <200>;
     flavor = "tap-preferred";
     quick-tap-ms = <150>;
-}
+};
 
 / {
     macros {
@@ -156,7 +156,7 @@
 &kp GRAVE       &kp N1        &kp N2        &kp N3        &kp N4  &kp N5                                   &kp N6           &kp N7  &kp N8     &kp N9   &kp N0         &kp BSPC
 &kp TAB         &kp Q         &kp W         &kp E         &kp R   &kp T                                    &kp Y            &kp U   &kp I      &kp O    &kp P          &kp BACKSLASH
 &kp ESC         &kp A         &kp S         &kp D         &kp F   &kp G                                    &kp H            &kp J   &kp K      &kp L    &kp SEMI       &kp SQT
-&kp  &kp Z         &kp X         &kp C         &kp V   &kp B        &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp N            &kp M   &kp COMMA  &kp DOT  &kp FSLH       &kp RIGHT_SHIFT
+&kp LEFT_SHIFT  &kp Z         &kp X         &kp C         &kp V   &kp B        &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp N            &kp M   &kp COMMA  &kp DOT  &kp FSLH       &kp RIGHT_SHIFT
 &kp LCTRL       &kp LEFT_WIN  &kp LEFT_ALT  &kp MINUS     &hold_fun_toggle FUN 0  &kp SPACE  &hold_scroll_toggle SCROLL 0  &ht_57_to_sym_hold_trackbless TRACKBLESS 0  &kp SPACE                  &kp RIGHT_ALT  &kp ENTER
             >;
         };
@@ -183,6 +183,17 @@
             >;
         };
 
+        mouse_layer {
+            label = "MOUSE";
+            bindings = <
+&none  &kp LC(LA(LG(N1)))  &kp LC(LA(LG(N2)))  &kp LC(LA(LG(N3)))  &kp LC(LA(LG(N4)))  &kp LC(LA(LG(N5)))                  &kp C_VOL_DN   &kp C_VOL_UP  &kp C_PP   &kp C_PREV  &kp C_NEXT  &kp BSPC
+&none   &kp LC(Q)      &kp LC(W)      &kp LC(E)   &kp LC(R)      &kp LC(T)                  &kp LC(LG(LEFT))  &kp LC(LG(RIGHT))  &none      &none  &none  &none
+&none   &kp LC(A)     &mkp RCLK  &mkp MCLK  &mkp LCLK  &none            &kp PAGE_UP    &mkp LCLK     &mkp MCLK  &mkp RCLK  &none  &hold_scroll_toggle SCROLL 0
+&kp LEFT_SHIFT  &kp LC(Z)  &kp LC(X)  &kp LC(C)  &kp LC(V)  &none  &none  &kp C_BRI_DOWN  &kp C_BRI_UP  &none  &none  &none  &none  &kp RIGHT_SHIFT
+&kp LCTRL  &none     &none     &none  &hold_fun_toggle FUN 0  &none  &hold_scroll_toggle SCROLL 0  &ht_57_qwrt_hold_trackbless TRACKBLESS 0  &none                  &none  &kp ENTER
+            >;
+        };
+
         function_layer {
             label = "FUN";
             bindings = <
@@ -194,23 +205,12 @@
             >;
         };
 
-        mouse_layer {
-            label = "MOUSE";
-            bindings = <
-&none  &none     &none     &none  &none     &none                  &kp C_VOL_DN   &kp C_VOL_UP  &kp C_PP   &kp C_PREV  &kp C_NEXT  &kp BSPC
-&none  &none     &none     &none  &none     &none                  &kp LC(LG(LEFT))  &kp LC(LG(RIGHT))  &none      &none  &hold_scroll_toggle SCROLL 0  &none
-&none  &none     &mkp RCLK  &mkp MCLK  &mkp LCLK  &none            &kp PAGE_UP    &mkp LCLK     &mkp MCLK  &mkp RCLK  &none  &none
-&LEFT_SHIFT  &kp LC(Z)  &kp LC(X)  &kp LC(C)  &kp LC(V)  &none  &none  &kp C_BRI_DOWN  &kp C_BRI_UP  &none  &none  &none  &none  &RIGHT_SHIFT
-&kp LCTRL  &none     &none     &none  &hold_fun_toggle FUN 0  &none  &hold_scroll_toggle SCROLL 0  &ht_57_qwrt_hold_trackbless TRACKBLESS 0  &none                  &none  &kp ENTER
-            >;
-        };
-
         scroll_layer {
             label = "SCROLL";
             bindings = <
 &none  &none  &none  &none  &none  &none                  &none  &none  &none  &none  &none  &kp DEL
 &none  &none  &none  &none  &none  &none                  &none  &none  &none  &none  &none  &none
-&none  &none  &none  &none  &none  &none                  &none  &none  &none  &none  &kp UP  &none
+&none  &none  &none  &none  &none  &none                  &none  &none  &none  &none  &kp UP  &hold_scroll_toggle SCROLL 0
 &none  &none  &none  &none  &none  &none  &none  &kp DEL  &none  &none  &none  &kp LEFT  &kp DOWN  &kp RIGHT
 &none  &none  &none  &none  &hold_fun_toggle FUN 0 &kp ENTER &hold_scroll_toggle SCROLL 0 &ht_57_qwrt_hold_trackbless TRACKBLESS 0  &kp ENTER              &none  &none
             >;
