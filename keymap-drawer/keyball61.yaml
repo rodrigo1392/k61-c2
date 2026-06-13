@@ -188,11 +188,11 @@ layers:
   - {t: '$$mdi:minus-circle-outline$$', type: none}
   MOUSE:
   - {t: '$$mdi:minus-circle-outline$$', type: none}
-  - {t: Ctl+Alt+Gui+1, s: Ctl+Alt+Gui+!}
-  - {t: Ctl+Alt+Gui+2, s: Ctl+Alt+Gui+@}
-  - {t: Ctl+Alt+Gui+3, s: Ctl+Alt+Gui+#}
-  - {t: Ctl+Alt+Gui+4, s: Ctl+Alt+Gui+$}
-  - {t: Ctl+Alt+Gui+5, s: Ctl+Alt+Gui+%}
+  - Ctl+Alt+Gui+F1
+  - Ctl+Alt+Gui+F2
+  - Ctl+Alt+Gui+F3
+  - Ctl+Alt+Gui+F4
+  - Ctl+Alt+Gui+F5
   - $$mdi:volume-low$$
   - $$mdi:volume-high$$
   - $$mdi:play-pause$$
