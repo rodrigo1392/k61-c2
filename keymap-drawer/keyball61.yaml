@@ -55,8 +55,8 @@ layers:
   - LEFT WIN
   - $$mdi:apple-keyboard-option$$
   - {t: '-', s: _}
-  - {t: '&td_fun_toggle', h: FUN}
   - $$mdi:keyboard-space$$
+  - {t: '&td_fun_toggle', h: FUN}
   - {t: '&td_scroll_toggle', h: SCROLL}
   - {t: '$$mdi:minus-circle-outline$$', h: TRACKBLESS}
   - $$mdi:keyboard-space$$
@@ -117,8 +117,8 @@ layers:
   - LEFT WIN
   - $$mdi:apple-keyboard-option$$
   - {t: '-', s: _}
-  - {t: '&td_fun_toggle', h: FUN}
   - $$mdi:keyboard-space$$
+  - {t: '&td_fun_toggle', h: FUN}
   - {t: '&td_scroll_toggle', h: SCROLL}
   - '&td_qwrt_sym_toggle'
   - $$mdi:keyboard-space$$
@@ -179,8 +179,8 @@ layers:
   - {t: '$$mdi:minus-circle-outline$$', type: none}
   - {t: '$$mdi:minus-circle-outline$$', type: none}
   - {t: '$$mdi:minus-circle-outline$$', type: none}
-  - {t: '&td_fun_toggle', h: FUN}
   - {t: '$$mdi:keyboard-return$$', type: enter}
+  - {t: '&td_fun_toggle', h: FUN}
   - {t: '&td_scroll_toggle', h: SCROLL}
   - {t: QWRT, h: TRACKBLESS}
   - {t: '$$mdi:keyboard-return$$', type: enter}
@@ -205,8 +205,8 @@ layers:
   - Ctl+E
   - Ctl+R
   - Ctl+T
-  - Ctl+Gui+$$mdi:arrow-left-bold$$
-  - Ctl+Gui+$$mdi:arrow-right-bold$$
+  - {t: '$$mdi:minus-circle-outline$$', type: none}
+  - {t: '$$mdi:minus-circle-outline$$', type: none}
   - {t: '$$mdi:minus-circle-outline$$', type: none}
   - {t: '$$mdi:minus-circle-outline$$', type: none}
   - {t: '$$mdi:minus-circle-outline$$', type: none}
@@ -241,8 +241,8 @@ layers:
   - LEFT WIN
   - $$mdi:apple-keyboard-option$$
   - {t: '$$mdi:minus-circle-outline$$', type: none}
-  - {t: '&td_fun_toggle', h: FUN}
   - {t: '$$mdi:minus-circle-outline$$', type: none}
+  - {t: '&td_fun_toggle', h: FUN}
   - {t: '&td_scroll_toggle', h: SCROLL}
   - {t: '&td_qwrt_sym_toggle', h: TRACKBLESS}
   - {t: '$$mdi:minus-circle-outline$$', type: none}
@@ -303,8 +303,8 @@ layers:
   - {t: '$$mdi:minus-circle-outline$$', type: none}
   - {t: '$$mdi:minus-circle-outline$$', type: none}
   - {t: '$$mdi:minus-circle-outline$$', type: none}
-  - {t: '&td_fun_toggle', h: FUN, type: held}
   - {t: '$$mdi:keyboard-return$$', type: enter}
+  - {t: '&td_fun_toggle', h: FUN, type: held}
   - {t: '&td_scroll_toggle', h: SCROLL}
   - {t: '&td_qwrt_sym_toggle', h: TRACKBLESS}
   - {t: '$$mdi:minus-circle-outline$$', type: none}
@@ -365,8 +365,8 @@ layers:
   - {t: '$$mdi:minus-circle-outline$$', type: none}
   - {t: '$$mdi:minus-circle-outline$$', type: none}
   - {t: '$$mdi:minus-circle-outline$$', type: none}
-  - {t: '&td_fun_toggle', h: FUN, type: held alternate}
   - {t: '$$mdi:keyboard-return$$', type: enter}
+  - {t: '&td_fun_toggle', h: FUN, type: held alternate}
   - {t: '&td_scroll_toggle', h: SCROLL, type: held}
   - {t: '&td_qwrt_sym_toggle', h: TRACKBLESS}
   - {t: '$$mdi:keyboard-return$$', type: enter}
@@ -427,8 +427,8 @@ layers:
   - {t: '$$mdi:minus-circle-outline$$', type: none}
   - {t: '$$mdi:minus-circle-outline$$', type: none}
   - {t: '$$mdi:minus-circle-outline$$', type: none}
-  - {t: '&td_fun_toggle', h: FUN}
   - {t: '$$mdi:minus-circle-outline$$', type: none}
+  - {t: '&td_fun_toggle', h: FUN}
   - {t: '&td_scroll_toggle', h: SCROLL}
   - {t: '&td_qwrt_sym_toggle', h: TRACKBLESS}
   - {t: '$$mdi:minus-circle-outline$$', type: none}
@@ -453,44 +453,44 @@ layers:
   - {t: '$$mdi:minus-circle-outline$$', type: none}
   - {t: '$$mdi:minus-circle-outline$$', type: none}
   - {t: '$$mdi:minus-circle-outline$$', type: none}
+  - Ctl+Gui+$$mdi:arrow-left-bold$$
+  - Ctl+Gui+$$mdi:arrow-right-bold$$
+  - {t: '$$mdi:minus-circle-outline$$', type: none}
+  - {t: '$$mdi:minus-circle-outline$$', type: none}
+  - {t: '$$mdi:minus-circle-outline$$', type: none}
+  - {t: '$$mdi:minus-circle-outline$$', type: held}
+  - {t: '$$mdi:minus-circle-outline$$', type: none}
+  - {t: '$$mdi:minus-circle-outline$$', type: none}
+  - {t: '$$mdi:minus-circle-outline$$', type: none}
+  - {t: '$$mdi:minus-circle-outline$$', type: none}
+  - {t: '$$mdi:minus-circle-outline$$', type: none}
+  - {t: '$$mdi:minus-circle-outline$$', type: none}
+  - {t: '$$mdi:minus-circle-outline$$', type: none}
+  - {t: '$$mdi:minus-circle-outline$$', type: none}
+  - {t: '$$mdi:minus-circle-outline$$', type: none}
+  - {t: '$$mdi:minus-circle-outline$$', type: none}
+  - {t: '$$mdi:minus-circle-outline$$', type: none}
+  - {t: '$$mdi:minus-circle-outline$$', type: none}
+  - {t: '$$mdi:minus-circle-outline$$', type: none}
+  - {t: '$$mdi:minus-circle-outline$$', type: none}
+  - {t: '$$mdi:minus-circle-outline$$', type: none}
+  - {t: '$$mdi:minus-circle-outline$$', type: none}
+  - {t: '$$mdi:minus-circle-outline$$', type: none}
+  - {t: '$$mdi:minus-circle-outline$$', type: none}
+  - {t: '$$mdi:minus-circle-outline$$', type: none}
+  - {t: '$$mdi:minus-circle-outline$$', type: none}
+  - {t: '$$mdi:minus-circle-outline$$', type: none}
+  - {t: '$$mdi:minus-circle-outline$$', type: none}
+  - {t: '$$mdi:minus-circle-outline$$', type: none}
+  - {t: '$$mdi:minus-circle-outline$$', type: none}
+  - {t: '$$mdi:minus-circle-outline$$', type: none}
+  - {t: '$$mdi:minus-circle-outline$$', type: none}
   - {t: '$$mdi:minus-circle-outline$$', type: none}
   - {t: '$$mdi:minus-circle-outline$$', type: none}
   - {t: '$$mdi:minus-circle-outline$$', type: none}
   - {t: '$$mdi:minus-circle-outline$$', type: none}
   - {t: '$$mdi:minus-circle-outline$$', type: none}
   - {t: '$$mdi:minus-circle-outline$$', type: held}
-  - {t: '$$mdi:minus-circle-outline$$', type: none}
-  - {t: '$$mdi:minus-circle-outline$$', type: none}
-  - {t: '$$mdi:minus-circle-outline$$', type: none}
-  - {t: '$$mdi:minus-circle-outline$$', type: none}
-  - {t: '$$mdi:minus-circle-outline$$', type: none}
-  - {t: '$$mdi:minus-circle-outline$$', type: none}
-  - {t: '$$mdi:minus-circle-outline$$', type: none}
-  - {t: '$$mdi:minus-circle-outline$$', type: none}
-  - {t: '$$mdi:minus-circle-outline$$', type: none}
-  - {t: '$$mdi:minus-circle-outline$$', type: none}
-  - {t: '$$mdi:minus-circle-outline$$', type: none}
-  - {t: '$$mdi:minus-circle-outline$$', type: none}
-  - {t: '$$mdi:minus-circle-outline$$', type: none}
-  - {t: '$$mdi:minus-circle-outline$$', type: none}
-  - {t: '$$mdi:minus-circle-outline$$', type: none}
-  - {t: '$$mdi:minus-circle-outline$$', type: none}
-  - {t: '$$mdi:minus-circle-outline$$', type: none}
-  - {t: '$$mdi:minus-circle-outline$$', type: none}
-  - {t: '$$mdi:minus-circle-outline$$', type: none}
-  - {t: '$$mdi:minus-circle-outline$$', type: none}
-  - {t: '$$mdi:minus-circle-outline$$', type: none}
-  - {t: '$$mdi:minus-circle-outline$$', type: none}
-  - {t: '$$mdi:minus-circle-outline$$', type: none}
-  - {t: '$$mdi:minus-circle-outline$$', type: none}
-  - {t: '$$mdi:minus-circle-outline$$', type: none}
-  - {t: '$$mdi:minus-circle-outline$$', type: none}
-  - {t: '$$mdi:minus-circle-outline$$', type: none}
-  - {t: '$$mdi:minus-circle-outline$$', type: none}
-  - {t: '$$mdi:minus-circle-outline$$', type: none}
-  - {t: '$$mdi:minus-circle-outline$$', type: none}
-  - {t: '$$mdi:minus-circle-outline$$', type: held}
-  - {t: '$$mdi:minus-circle-outline$$', type: none}
   - {t: '$$mdi:minus-circle-outline$$', type: none}
   - {t: '$$mdi:minus-circle-outline$$', type: none}
   - {t: '$$mdi:minus-circle-outline$$', type: none}
