@@ -1,7 +1,7 @@
 #define QWRT       0
-#define TRACKBLESS 1
-#define SYM        2
-#define MOUSE      3
+#define MOUSE      1
+#define TRACKBLESS 2
+#define SYM        3
 #define FUN        4
 #define SCROLL     5
 #define SNIPE      6
@@ -12,6 +12,7 @@
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/modifiers.h>
 #include <dt-bindings/zmk/mouse.h>
 
 &lt {
@@ -108,6 +109,13 @@
             bindings = <&mo>, <&td_fun_toggle>;
         };
 
+        ctrl_backspace_delete: ctrl_backspace_delete {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp BSPC>, <&kp DEL>;
+            mods = <(MOD_LCTL | MOD_RCTL)>;
+        };
+
         td_blocked_default: td_blocked_default {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
@@ -129,6 +137,14 @@
             tapping-term-ms = <400>;
             flavor = "hold-preferred";
             bindings = <&tog>, <&td_qwrt_sym_toggle>;
+        };
+
+        ht_57_mouse_to_qwrt_hold_trackbless: ht_57_mouse_to_qwrt_hold_trackbless {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            tapping-term-ms = <400>;
+            flavor = "hold-preferred";
+            bindings = <&mo>, <&to>;
         };
 
         ht_57_sym_hold_qwrt: ht_57_sym_hold_qwrt {
@@ -154,11 +170,22 @@
         qwrt_layer {
             label = "QWRT";
             bindings = <
-&kp GRAVE       &kp N1        &kp N2        &kp N3        &kp N4  &kp N5                                   &kp N6           &kp N7  &kp N8     &kp N9   &kp N0         &kp BSPC
+&kp GRAVE       &kp N1        &kp N2        &kp N3        &kp N4  &kp N5                                   &kp N6           &kp N7  &kp N8     &kp N9   &kp N0         &ctrl_backspace_delete
 &kp TAB         &kp Q         &kp W         &kp E         &kp R   &kp T                                    &kp Y            &kp U   &kp I      &kp O    &kp P          &kp BACKSLASH
 &kp ESC         &kp A         &kp S         &kp D         &kp F   &kp G                                    &kp H            &kp J   &kp K      &kp L    &kp SEMI       &kp SQT
 &kp LEFT_SHIFT  &kp Z         &kp X         &kp C         &kp V   &kp B        &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp N            &kp M   &kp COMMA  &kp DOT  &kp FSLH       &kp RIGHT_SHIFT
 &kp LCTRL       &kp LEFT_WIN  &kp LEFT_ALT  &kp MINUS     &kp SPACE  &hold_fun_toggle FUN 0  &hold_scroll_toggle SCROLL 0  &ht_57_to_sym_hold_trackbless TRACKBLESS 0  &kp SPACE                  &kp RIGHT_ALT  &kp ENTER
+            >;
+        };
+
+        mouse_layer {
+            label = "MOUSE";
+            bindings = <
+&none  &kp LC(LA(LG(F1)))  &kp LC(LA(LG(F2)))  &kp LC(LA(LG(F3)))  &kp LC(LA(LG(F4)))  &kp LC(LA(LG(F5)))                  &kp C_VOL_DN   &kp C_VOL_UP  &kp C_PP   &kp C_PREV  &kp C_NEXT  &kp BSPC
+&none   &kp LC(Q)      &kp LC(W)      &kp LC(E)   &kp LC(R)      &kp LC(T)                  &none  &none  &none      &none  &none  &none
+&none   &kp LC(A)     &mkp RCLK  &mkp MCLK  &mkp LCLK  &none            &kp PAGE_UP    &mkp LCLK     &mkp MCLK  &mkp RCLK  &none  &hold_scroll_toggle SCROLL 0
+&kp LEFT_SHIFT  &kp LC(Z)  &kp LC(X)  &kp LC(C)  &kp LC(V)  &none  &none  &kp C_BRI_DN  &kp C_BRI_UP  &none  &none  &none  &none  &kp RIGHT_SHIFT
+&kp LCTRL  &kp LEFT_WIN  &kp LEFT_ALT  &none  &none  &hold_fun_toggle FUN 0  &hold_scroll_toggle SCROLL 0  &ht_57_mouse_to_qwrt_hold_trackbless TRACKBLESS QWRT  &none                  &kp RIGHT_ALT  &kp ENTER
             >;
         };
 
@@ -184,17 +211,6 @@
             >;
         };
 
-        mouse_layer {
-            label = "MOUSE";
-            bindings = <
-&none  &kp LC(LA(LG(F1)))  &kp LC(LA(LG(F2)))  &kp LC(LA(LG(F3)))  &kp LC(LA(LG(F4)))  &kp LC(LA(LG(F5)))                  &kp C_VOL_DN   &kp C_VOL_UP  &kp C_PP   &kp C_PREV  &kp C_NEXT  &kp BSPC
-&none   &kp LC(Q)      &kp LC(W)      &kp LC(E)   &kp LC(R)      &kp LC(T)                  &none  &none  &none      &none  &none  &none
-&none   &kp LC(A)     &mkp RCLK  &mkp MCLK  &mkp LCLK  &none            &kp PAGE_UP    &mkp LCLK     &mkp MCLK  &mkp RCLK  &none  &hold_scroll_toggle SCROLL 0
-&kp LEFT_SHIFT  &kp LC(Z)  &kp LC(X)  &kp LC(C)  &kp LC(V)  &none  &none  &kp C_BRI_DN  &kp C_BRI_UP  &none  &none  &none  &none  &kp RIGHT_SHIFT
-&kp LCTRL  &kp LEFT_WIN  &kp LEFT_ALT  &none  &none  &hold_fun_toggle FUN 0  &hold_scroll_toggle SCROLL 0  &ht_57_qwrt_hold_trackbless TRACKBLESS 0  &none                  &kp RIGHT_ALT  &kp ENTER
-            >;
-        };
-
         function_layer {
             label = "FUN";
             bindings = <
@@ -212,8 +228,8 @@
 &none  &none  &none  &none  &none  &none                  &none  &none  &none  &none  &none  &kp DEL
 &none  &none  &none  &none  &none  &none                  &none  &none  &none  &none  &none  &none
 &none  &none  &none  &none  &none  &none                  &none  &none  &none  &none  &kp UP  &hold_scroll_toggle SCROLL 0
-&none  &none  &none  &none  &none  &none  &none  &kp DEL  &none  &none  &none  &kp LEFT  &kp DOWN  &kp RIGHT
-&none  &none  &none  &none  &kp ENTER &hold_fun_toggle FUN 0 &hold_scroll_toggle SCROLL 0 &ht_57_qwrt_hold_trackbless TRACKBLESS 0  &kp ENTER              &none  &none
+&kp LEFT_SHIFT  &none  &none  &none  &none  &none  &none  &kp DEL  &none  &none  &none  &kp LEFT  &kp DOWN  &kp RIGHT
+&kp LCTRL  &none  &none  &none  &kp ENTER &hold_fun_toggle FUN 0 &hold_scroll_toggle SCROLL 0 &ht_57_qwrt_hold_trackbless TRACKBLESS 0  &kp ENTER              &none  &none
             >;
         };
 
