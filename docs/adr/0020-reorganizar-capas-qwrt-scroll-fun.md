@@ -10,13 +10,9 @@ sin cambiar las teclas de `QWRT` que no fueron solicitadas.
 Reordenar los indices de capas para que `SCROLL` sea layer 2 y `FUN` sea layer
 3. Mover `TRACKBLESS` a layer 4 y `SYM` a layer 5.
 
-En `QWRT`, asignar la posicion 42 a `SCROLL` momentaneo, la posicion 55 a click
-derecho, la posicion 56 a click izquierdo y la posicion 57 a hold `FUN` / tap
-toggle `FUN`.
-
-Rotar las funciones de las posiciones 40, 41 y 42 en todas las capas, de modo
-que 40 recibe la funcion anterior de 41, 41 recibe la funcion anterior de 42 y
-42 recibe la funcion anterior de 40.
+En `QWRT`, asignar la posicion 40 a click izquierdo, la posicion 41 a `V`, la
+posicion 42 a `B`, la posicion 55 a click derecho, la posicion 56 a `SCROLL`
+momentaneo y la posicion 57 a hold `FUN` / tap toggle `FUN`.
 
 En `MOUSE`, repetir explicitamente las posiciones de `QWRT` para que automouse
 mantenga las teclas normales y los clicks sin depender de `&trans`.
