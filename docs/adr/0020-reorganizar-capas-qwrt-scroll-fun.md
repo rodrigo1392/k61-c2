@@ -23,8 +23,16 @@ En `SCROLL`, agregar flechas, delete en backspace, click medio, page up/down,
 salida a `QWRT`, bracket izquierdo y un bloque numerico con operadores.
 
 En `FUN`, conservar las funciones existentes y mover los accesos de `BLOCKED`,
-`SYM` y `SNIPE` a las posiciones 1, 2 y 3. Asignar controles multimedia a las
-posiciones 0, 12, 24, 36 y 50.
+`SYM` y `SNIPE` a las posiciones 1, 2 y 3. Activar `TRACKBLESS` solo desde
+`FUN`, en la posicion 5.
+
+En `FUN`, las posiciones sin funcion especial envian la tecla normal equivalente
+de `QWRT`. Las posiciones 55 y 56 mantienen click derecho e izquierdo.
+
+Las posiciones 55 y 56 envian click derecho e izquierdo en todas las capas salvo
+`TRACKBLESS` y `BLOCKED`.
+
+Asignar controles multimedia a las posiciones 0, 12, 24, 36 y 50.
 
 En `SUPERFUN`, asignar brillo, `Ctrl+D` y cambio de escritorio virtual de
 Windows a las posiciones 0, 12, 24, 36 y 50.

@@ -131,45 +131,6 @@
             bindings = <&none>, <&to QWRT>;
         };
 
-        ht_57_to_sym_hold_trackbless: ht_57_to_sym_hold_trackbless {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            tapping-term-ms = <200>;
-            flavor = "hold-preferred";
-            bindings = <&tog>, <&none>;
-        };
-
-        ht_57_qwrt_hold_trackbless: ht_57_qwrt_hold_trackbless {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            tapping-term-ms = <400>;
-            flavor = "hold-preferred";
-            bindings = <&tog>, <&td_qwrt_sym_toggle>;
-        };
-
-        ht_57_mouse_to_qwrt_hold_trackbless: ht_57_mouse_to_qwrt_hold_trackbless {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            tapping-term-ms = <400>;
-            flavor = "hold-preferred";
-            bindings = <&mo>, <&to>;
-        };
-
-        ht_57_sym_hold_qwrt: ht_57_sym_hold_qwrt {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            tapping-term-ms = <200>;
-            flavor = "hold-preferred";
-            bindings = <&to>, <&td_sym_to_toggle>;
-        };
-
-        ht_57_to_qwrt_hold_trackbless: ht_57_to_qwrt_hold_trackbless {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            tapping-term-ms = <400>;
-            flavor = "hold-preferred";
-            bindings = <&tog>, <&to>;
-        };
     };
 
     keymap {
@@ -204,18 +165,18 @@
 &none  &none  &none  &none  &none  &none                  &kp N7    &kp N8     &kp N9        &kp EQUAL &none  &none
 &none  &none  &none  &none  &none  &kp PAGE_UP            &kp N4    &kp N5     &kp N6        &none     &kp UP  &none
 &kp LEFT_SHIFT  &none  &none  &none  &none  &kp PAGE_DOWN  &mo SCROLL  &kp N0  &kp N1  &kp N2  &kp N3  &kp LEFT  &kp DOWN  &kp RIGHT
-&kp LCTRL  &none  &none  &kp LEFT_BRACKET  &mkp MCLK  &none  &none  &to QWRT  &none              &none  &none
+&kp LCTRL  &none  &none  &kp LEFT_BRACKET  &mkp MCLK  &mkp RCLK  &mkp LCLK  &to QWRT  &none              &none  &none
             >;
         };
 
         function_layer {
             label = "FUN";
             bindings = <
-&kp C_VOL_DN  &to BLOCKED &tog SYM &tog SNIPE &none   &none                  &kp PLUS  &kp MINUS  &kp ASTERISK  &kp FSLH  &none  &none
-&kp C_VOL_UP  &kp F1      &kp F2   &kp F3     &kp F4  &email_rodrigo         &kp N7    &kp N8     &kp N9        &kp EQUAL &none  &lt SUPERFUN BACKSLASH
-&kp C_PP      &kp F5      &kp F6   &kp F7     &kp F8  &kp PAGE_UP            &kp N4    &kp N5     &kp N6        &none     &none  &none
-&kp C_PREV    &kp F9      &kp F10  &kp F11    &kp F12 &kp PAGE_DOWN  &none  &kp N0  &kp N1  &kp N2  &kp N3  &none  &none  &none
-&kp C_NEXT    &none       &none    &none      &kp ENTER  &hold_fun_toggle FUN 0  &hold_scroll_toggle SCROLL 0  &ht_57_qwrt_hold_trackbless TRACKBLESS 0  &none              &none  &none
+&kp C_VOL_DN  &to BLOCKED &tog SYM &tog SNIPE &kp N4  &mo TRACKBLESS                  &kp PLUS  &kp MINUS  &kp ASTERISK  &kp FSLH  &kp N0  &ctrl_backspace_delete
+&kp C_VOL_UP  &kp F1      &kp F2   &kp F3     &kp F4  &email_rodrigo         &kp N7    &kp N8     &kp N9        &kp EQUAL &kp P  &lt SUPERFUN BACKSLASH
+&kp C_PP      &kp F5      &kp F6   &kp F7     &kp F8  &kp PAGE_UP            &kp N4    &kp N5     &kp N6        &kp L     &kp SEMI  &kp SQT
+&kp C_PREV    &kp F9      &kp F10  &kp F11    &kp F12 &kp PAGE_DOWN  &mo SCROLL  &kp N0  &kp N1  &kp N2  &kp N3  &kp DOT  &kp FSLH  &kp RIGHT_SHIFT
+&kp C_NEXT    &kp LEFT_WIN &kp LEFT_ALT &kp MINUS &kp ENTER  &mkp RCLK  &mkp LCLK  &ht_57_fun_toggle FUN FUN  &kp SPACE              &kp RIGHT_ALT  &kp ENTER
             >;
         };
 
@@ -237,7 +198,7 @@
 &none  &none            &none         &none         &none         &none                        &none           &none          &none             &none                 &none                  &none
 &none  &bt BT_CLR       &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &none                        &kp MINUS       &kp EQUAL      &kp LEFT_BRACKET  &kp RIGHT_BRACKET     &none                  &none
 &none  &none            &none         &none         &none         &none       &none  &kp DEL   &kp UNDERSCORE  &kp PLUS       &none             &none                 &none                  &none
-&none  &none            &none         &none         &kp ENTER  &hold_fun_toggle FUN 0  &hold_scroll_toggle SCROLL 0  &ht_57_to_qwrt_hold_trackbless TRACKBLESS QWRT  &kp ENTER                                                            &none                  &none
+&none  &none            &none         &none         &kp ENTER  &mkp RCLK  &mkp LCLK  &ht_57_fun_toggle FUN FUN  &kp ENTER                                                            &none                  &none
             >;
         };
 
@@ -248,7 +209,7 @@
 &none  &none  &none  &none  &none  &none                  &none  &none  &none  &none  &none  &none
 &none  &none  &none  &none  &none  &none                  &none  &none  &none  &none  &none  &none
 &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none
-&none  &none  &none  &none  &none  &hold_fun_toggle FUN 0  &hold_scroll_toggle SCROLL 0  &ht_57_qwrt_hold_trackbless TRACKBLESS 0  &none              &none  &none
+&none  &none  &none  &none  &none  &mkp RCLK  &mkp LCLK  &ht_57_fun_toggle FUN FUN  &none              &none  &none
             >;
         };
 
@@ -259,7 +220,7 @@
 &kp C_BRI_UP  &kp F23  &kp F24  &none    &none    &none                    &kp LC(LG(LEFT))    &kp LC(LG(RIGHT))    &none    &none    &none    &none
 &kp LC(D)     &none    &none    &none    &none    &none                    &none    &none    &none    &none    &none    &none
 &kp LC(LG(LEFT))  &none    &none    &none    &none    &none  &none  &none  &none  &none  &none  &none  &none  &none
-&kp LC(LG(RIGHT)) &none    &none    &none    &none    &none  &none  &none  &none                  &none  &none
+&kp LC(LG(RIGHT)) &none    &none    &none    &none    &mkp RCLK  &mkp LCLK  &none  &none                  &none  &none
             >;
         };
 
