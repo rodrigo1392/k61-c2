@@ -13,7 +13,11 @@ Reordenar los indices de capas para que `SCROLL` sea layer 2 y `FUN` sea layer
 En `QWRT`, asignar la posicion 42 a `SCROLL` momentaneo, las posiciones 55 y 56
 a click derecho e izquierdo, y la posicion 57 a hold `FUN` / tap toggle `FUN`.
 
-En `MOUSE`, dejar todas las posiciones transparentes para heredar `QWRT`.
+En `MOUSE`, repetir explicitamente las posiciones de `QWRT` para que automouse
+mantenga las teclas normales y los clicks sin depender de `&trans`.
+
+Desactivar `automouse-layer`: el movimiento del trackball ya no activa `MOUSE`
+porque las funciones necesarias de mouse estan disponibles desde `QWRT`.
 
 En `SCROLL`, agregar flechas, delete en backspace, click medio, page up/down,
 salida a `QWRT`, bracket izquierdo y un bloque numerico con operadores.
@@ -30,7 +34,13 @@ Windows a las posiciones 0, 12, 24, 36 y 50.
 La configuracion del PMW3610 debe actualizar `scroll-layers` a 2 y bloquear el
 trackball en `TRACKBLESS` usando el nuevo indice 4.
 
+La configuracion del PMW3610 deja de declarar `automouse-layer` y opciones de
+timeout/umbral de automouse.
+
 El modificador de backspace ahora envia delete con Ctrl o Alt.
+
+Los botones de mouse usan la configuracion actual de ZMK con
+`CONFIG_ZMK_POINTING=y` y `dt-bindings/zmk/pointing.h`.
 
 ## Reversal strategy
 
