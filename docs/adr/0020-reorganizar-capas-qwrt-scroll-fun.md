@@ -58,8 +58,11 @@ Alt+Backspace conservan el comportamiento normal del sistema.
 Los botones de mouse usan la configuracion actual de ZMK con
 `CONFIG_ZMK_POINTING=y` y `dt-bindings/zmk/pointing.h`.
 
-El timeout de reposo del lado derecho aumenta de 15 a 30 minutos para ampliar
-el periodo de reactivacion tras inactividad.
+La matriz de ambas mitades se declara como fuente de despertar. El lado derecho
+no entra en sueño profundo, para mantener activo el enlace central y permitir
+que una tecla de cualquiera de las dos mitades reactive el teclado desde idle.
+Esto aumenta el consumo durante periodos largos de inactividad frente al sueño
+profundo.
 
 ## Reversal strategy
 
