@@ -41,9 +41,9 @@ layers:
   - Z
   - X
   - C
-  - V
   - B
   - SCROLL
+  - V
   - {t: ']', s: '}'}
   - N
   - M
@@ -103,9 +103,9 @@ layers:
   - Z
   - X
   - C
-  - V
   - B
   - SCROLL
+  - V
   - {t: ']', s: '}'}
   - N
   - M
@@ -165,9 +165,9 @@ layers:
   - {t: '$$mdi:minus-circle-outline$$', type: none}
   - {t: '$$mdi:minus-circle-outline$$', type: none}
   - {t: '$$mdi:minus-circle-outline$$', type: none}
-  - {t: '$$mdi:minus-circle-outline$$', type: none}
   - PgDn
   - {t: SCROLL, type: held}
+  - {t: '$$mdi:minus-circle-outline$$', type: none}
   - {t: '0', s: )}
   - {t: '1', s: '!'}
   - {t: '2', s: '@'}
@@ -227,9 +227,9 @@ layers:
   - F9
   - F10
   - F11
-  - F12
   - PgDn
   - SCROLL
+  - F12
   - {t: '0', s: )}
   - {t: '1', s: '!'}
   - {t: '2', s: '@'}
@@ -289,9 +289,9 @@ layers:
   - Z
   - X
   - C
-  - V
   - B
   - {t: '[', s: '{'}
+  - V
   - {t: ']', s: '}'}
   - N
   - M
@@ -476,8 +476,8 @@ layers:
   - {t: '$$mdi:minus-circle-outline$$', type: none}
   - {t: '$$mdi:minus-circle-outline$$', type: none}
   - {t: '$$mdi:minus-circle-outline$$', type: none}
-  - {t: '$$mdi:minus-circle-outline$$', type: none}
   - {t: '$$mdi:minus-circle-outline$$', type: held}
+  - {t: '$$mdi:minus-circle-outline$$', type: none}
   - {t: '$$mdi:minus-circle-outline$$', type: none}
   - {t: '$$mdi:minus-circle-outline$$', type: none}
   - {t: '$$mdi:minus-circle-outline$$', type: none}
