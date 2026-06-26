@@ -162,7 +162,7 @@
             label = "SCROLL";
             bindings = <
 &none  &none  &none  &none  &none  &none                  &kp PLUS  &kp MINUS  &kp ASTERISK  &kp FSLH  &none  &kp DEL
-&none  &none  &none  &none  &none  &none                  &kp N7    &kp N8     &kp N9        &kp EQUAL &none  &none
+&none  &none  &none  &none  &none  &none                  &kp N7    &kp N8     &kp N9        &kp EQUAL &none  &lt SUPERFUN BACKSLASH
 &none  &none  &none  &none  &none  &kp PAGE_UP            &kp N4    &kp N5     &kp N6        &none     &kp UP  &none
 &kp LEFT_SHIFT  &none  &none  &none  &none  &kp PAGE_DOWN  &mo SCROLL  &kp N0  &kp N1  &kp N2  &kp N3  &kp LEFT  &kp DOWN  &kp RIGHT
 &kp LCTRL  &none  &none  &kp LEFT_BRACKET  &mkp MCLK  &mkp RCLK  &mkp LCLK  &to QWRT  &none              &none  &none
@@ -176,7 +176,7 @@
 &kp C_VOL_UP  &kp F1      &kp F2   &kp F3     &kp F4  &email_rodrigo         &kp N7    &kp N8     &kp N9        &kp EQUAL &kp P  &lt SUPERFUN BACKSLASH
 &kp C_PP      &kp F5      &kp F6   &kp F7     &kp F8  &kp PAGE_UP            &kp N4    &kp N5     &kp N6        &kp L     &kp SEMI  &kp SQT
 &kp C_PREV    &kp F9      &kp F10  &kp F11    &kp F12 &kp PAGE_DOWN  &mo SCROLL  &kp N0  &kp N1  &kp N2  &kp N3  &kp DOT  &kp FSLH  &kp RIGHT_SHIFT
-&kp C_NEXT    &kp LEFT_WIN &kp LEFT_ALT &kp MINUS &kp ENTER  &mkp RCLK  &mkp LCLK  &ht_57_fun_toggle FUN FUN  &kp SPACE              &kp RIGHT_ALT  &kp ENTER
+&kp C_NEXT    &kp LEFT_WIN &kp LEFT_ALT &kp MINUS &kp ENTER  &mkp RCLK  &mkp LCLK  &ht_57_fun_toggle FUN FUN  &kp ENTER              &kp RIGHT_ALT  &kp ENTER
             >;
         };
 
@@ -198,7 +198,7 @@
 &none  &none            &none         &none         &none         &none                        &none           &none          &none             &none                 &none                  &none
 &none  &bt BT_CLR       &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &none                        &kp MINUS       &kp EQUAL      &kp LEFT_BRACKET  &kp RIGHT_BRACKET     &none                  &none
 &none  &none            &none         &none         &none         &none       &none  &kp DEL   &kp UNDERSCORE  &kp PLUS       &none             &none                 &none                  &none
-&none  &none            &none         &none         &kp ENTER  &mkp RCLK  &mkp LCLK  &ht_57_fun_toggle FUN FUN  &kp ENTER                                                            &none                  &none
+&none  &none            &none         &none         &kp ENTER  &mkp RCLK  &mkp LCLK  &to QWRT  &kp ENTER                                                            &none                  &none
             >;
         };
 

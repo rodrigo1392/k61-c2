@@ -20,14 +20,18 @@ Desactivar `automouse-layer`: el movimiento del trackball ya no activa `MOUSE`
 porque las funciones necesarias de mouse estan disponibles desde `QWRT`.
 
 En `SCROLL`, agregar flechas, delete en backspace, click medio, page up/down,
-salida a `QWRT`, bracket izquierdo y un bloque numerico con operadores.
+salida a `QWRT`, bracket izquierdo, un bloque numerico con operadores y acceso
+a `SUPERFUN` desde la posicion de `\`.
 
 En `FUN`, conservar las funciones existentes y mover los accesos de `BLOCKED`,
 `SYM` y `SNIPE` a las posiciones 1, 2 y 3. Activar `TRACKBLESS` solo desde
 `FUN`, en la posicion 5.
 
 En `FUN`, las posiciones sin funcion especial envian la tecla normal equivalente
-de `QWRT`. Las posiciones 55 y 56 mantienen click derecho e izquierdo.
+de `QWRT`. Las posiciones 55 y 56 mantienen click derecho e izquierdo, y la
+posicion 58 envia `ENTER`.
+
+En `SYM`, la posicion 57 vuelve explicitamente a `QWRT`.
 
 Las posiciones 55 y 56 envian click derecho e izquierdo en todas las capas salvo
 `TRACKBLESS` y `BLOCKED`.
