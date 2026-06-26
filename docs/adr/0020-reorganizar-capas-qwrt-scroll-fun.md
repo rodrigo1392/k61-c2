@@ -24,6 +24,9 @@ En `SCROLL`, agregar flechas, delete en backspace, click medio, page up/down,
 salida a `QWRT`, bracket izquierdo, un bloque numerico con operadores y acceso
 a `SUPERFUN` desde la posicion de `\`.
 
+En `SCROLL`, asignar `S`, `D` y `F` a click derecho, click medio y click
+izquierdo.
+
 En `FUN`, conservar las funciones existentes y mover los accesos de `BLOCKED`,
 `SYM` y `SNIPE` a las posiciones 1, 2 y 3. Alternar `TRACKBLESS` solo desde
 `FUN`, en la posicion 5. `TRACKBLESS` se desactiva desde la posicion 57, que
