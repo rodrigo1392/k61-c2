@@ -124,6 +124,14 @@
             bindings = <&mo>, <&tog>;
         };
 
+        ht_55_mouse_toggle: ht_55_mouse_toggle {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
+            flavor = "hold-preferred";
+            bindings = <&mo>, <&tog>;
+        };
+
         td_blocked_default: td_blocked_default {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
@@ -143,18 +151,18 @@
 &kp TAB         &kp Q         &kp W         &kp E         &kp R   &kp T                                    &kp Y            &kp U   &kp I      &kp O    &kp P          &kp BACKSLASH
 &kp ESC         &kp A         &kp S         &kp D         &kp F   &kp G                                    &kp H            &kp J   &kp K      &kp L    &kp SEMI       &kp SQT
 &kp LEFT_SHIFT  &kp Z         &kp X         &kp C         &mkp LCLK  &kp V   &kp B        &kp RIGHT_BRACKET  &kp N            &kp M   &kp COMMA  &kp DOT  &kp FSLH       &kp RIGHT_SHIFT
-&kp LCTRL       &kp LEFT_WIN  &kp LEFT_ALT  &kp MINUS     &kp SPACE  &mkp RCLK  &mo SCROLL  &ht_57_fun_toggle FUN FUN  &kp SPACE                  &kp RIGHT_ALT  &kp ENTER
+&kp LCTRL       &kp LEFT_WIN  &kp LEFT_ALT  &kp MINUS     &kp SPACE  &ht_55_mouse_toggle MOUSE MOUSE  &mo SCROLL  &ht_57_fun_toggle FUN FUN  &kp SPACE                  &kp RIGHT_ALT  &kp ENTER
             >;
         };
 
         mouse_layer {
             label = "MOUSE";
             bindings = <
-&kp GRAVE       &kp N1        &kp N2        &kp N3        &kp N4  &kp N5                                   &kp N6           &kp N7  &kp N8     &kp N9   &kp N0         &shift_backspace_delete
-&kp TAB         &kp Q         &kp W         &kp E         &kp R   &kp T                                    &kp Y            &kp U   &kp I      &kp O    &kp P          &kp BACKSLASH
-&kp ESC         &kp A         &kp S         &kp D         &kp F   &kp G                                    &kp H            &kp J   &kp K      &kp L    &kp SEMI       &kp SQT
-&kp LEFT_SHIFT  &kp Z         &kp X         &kp C         &mkp LCLK  &kp V   &kp B        &kp RIGHT_BRACKET  &kp N            &kp M   &kp COMMA  &kp DOT  &kp FSLH       &kp RIGHT_SHIFT
-&kp LCTRL       &kp LEFT_WIN  &kp LEFT_ALT  &kp MINUS     &kp SPACE  &mkp RCLK  &mo SCROLL  &to QWRT  &kp SPACE                  &kp RIGHT_ALT  &kp ENTER
+&trans  &trans  &trans  &trans  &trans  &trans                  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans                  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &mkp RCLK  &mkp MCLK  &mkp LCLK  &trans        &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans          &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans                  &trans  &trans
             >;
         };
 

@@ -11,11 +11,12 @@ Reordenar los indices de capas para que `SCROLL` sea layer 2 y `FUN` sea layer
 3. Mover `TRACKBLESS` a layer 4 y `SYM` a layer 5.
 
 En `QWRT`, asignar la posicion 40 a click izquierdo, la posicion 41 a `V`, la
-posicion 42 a `B`, la posicion 55 a click derecho, la posicion 56 a `SCROLL`
-momentaneo y la posicion 57 a hold `FUN` / tap toggle `FUN`.
+posicion 42 a `B`, la posicion 55 a hold `MOUSE` / tap toggle `MOUSE`, la
+posicion 56 a `SCROLL` momentaneo y la posicion 57 a hold `FUN` / tap toggle
+`FUN`.
 
-En `MOUSE`, repetir explicitamente las posiciones de `QWRT` para que automouse
-mantenga las teclas normales y los clicks sin depender de `&trans`.
+En `MOUSE`, heredar las posiciones de `QWRT` con `&trans`, salvo `S`, `D` y `F`,
+que envian click derecho, click medio y click izquierdo.
 
 Desactivar `automouse-layer`: el movimiento del trackball ya no activa `MOUSE`
 porque las funciones necesarias de mouse estan disponibles desde `QWRT`.
@@ -38,9 +39,6 @@ posicion 58 envia `ENTER`.
 
 En todas las capas no base, la posicion 57 vuelve explicitamente a `QWRT`.
 
-Las posiciones 55 y 56 envian click derecho e izquierdo en todas las capas salvo
-`TRACKBLESS` y `BLOCKED`.
-
 Asignar controles multimedia a las posiciones 0, 12, 24, 36 y 50.
 
 En `SUPERFUN`, asignar brillo, `Ctrl+D` y cambio de escritorio virtual de
@@ -59,6 +57,9 @@ Alt+Backspace conservan el comportamiento normal del sistema.
 
 Los botones de mouse usan la configuracion actual de ZMK con
 `CONFIG_ZMK_POINTING=y` y `dt-bindings/zmk/pointing.h`.
+
+El timeout de reposo del lado derecho aumenta de 15 a 30 minutos para ampliar
+el periodo de reactivacion tras inactividad.
 
 ## Reversal strategy
 
