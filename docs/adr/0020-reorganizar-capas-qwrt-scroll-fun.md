@@ -31,7 +31,7 @@ En `FUN`, las posiciones sin funcion especial envian la tecla normal equivalente
 de `QWRT`. Las posiciones 55 y 56 mantienen click derecho e izquierdo, y la
 posicion 58 envia `ENTER`.
 
-En `SYM`, la posicion 57 vuelve explicitamente a `QWRT`.
+En todas las capas no base, la posicion 57 vuelve explicitamente a `QWRT`.
 
 Las posiciones 55 y 56 envian click derecho e izquierdo en todas las capas salvo
 `TRACKBLESS` y `BLOCKED`.

@@ -154,7 +154,7 @@
 &kp TAB         &kp Q         &kp W         &kp E         &kp R   &kp T                                    &kp Y            &kp U   &kp I      &kp O    &kp P          &kp BACKSLASH
 &kp ESC         &kp A         &kp S         &kp D         &kp F   &kp G                                    &kp H            &kp J   &kp K      &kp L    &kp SEMI       &kp SQT
 &kp LEFT_SHIFT  &kp Z         &kp X         &kp C         &kp V   &kp B        &mo SCROLL  &kp RIGHT_BRACKET  &kp N            &kp M   &kp COMMA  &kp DOT  &kp FSLH       &kp RIGHT_SHIFT
-&kp LCTRL       &kp LEFT_WIN  &kp LEFT_ALT  &kp MINUS     &kp SPACE  &mkp RCLK  &mkp LCLK  &ht_57_fun_toggle FUN FUN  &kp SPACE                  &kp RIGHT_ALT  &kp ENTER
+&kp LCTRL       &kp LEFT_WIN  &kp LEFT_ALT  &kp MINUS     &kp SPACE  &mkp RCLK  &mkp LCLK  &to QWRT  &kp SPACE                  &kp RIGHT_ALT  &kp ENTER
             >;
         };
 
@@ -176,7 +176,7 @@
 &kp C_VOL_UP  &kp F1      &kp F2   &kp F3     &kp F4  &email_rodrigo         &kp N7    &kp N8     &kp N9        &kp EQUAL &kp P  &lt SUPERFUN BACKSLASH
 &kp C_PP      &kp F5      &kp F6   &kp F7     &kp F8  &kp PAGE_UP            &kp N4    &kp N5     &kp N6        &kp L     &kp SEMI  &kp SQT
 &kp C_PREV    &kp F9      &kp F10  &kp F11    &kp F12 &kp PAGE_DOWN  &mo SCROLL  &kp N0  &kp N1  &kp N2  &kp N3  &kp DOT  &kp FSLH  &kp RIGHT_SHIFT
-&kp C_NEXT    &kp LEFT_WIN &kp LEFT_ALT &kp MINUS &kp ENTER  &mkp RCLK  &mkp LCLK  &ht_57_fun_toggle FUN FUN  &kp ENTER              &kp RIGHT_ALT  &kp ENTER
+&kp C_NEXT    &kp LEFT_WIN &kp LEFT_ALT &kp MINUS &kp ENTER  &mkp RCLK  &mkp LCLK  &to QWRT  &kp ENTER              &kp RIGHT_ALT  &kp ENTER
             >;
         };
 
@@ -187,7 +187,7 @@
 &kp TAB         &kp Q         &kp W         &kp E         &kp R   &kp T                                    &kp Y            &kp U   &kp I      &kp O    &kp P          &kp BACKSLASH
 &kp ESC         &kp A         &kp S         &kp D         &kp F   &kp G                                    &kp H            &kp J   &kp K      &kp L    &kp SEMI       &kp SQT
 &kp LEFT_SHIFT  &kp Z         &kp X         &kp C         &kp V   &kp B        &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp N            &kp M   &kp COMMA  &kp DOT  &kp FSLH       &kp RIGHT_SHIFT
-&kp LCTRL       &kp LEFT_WIN  &kp LEFT_ALT  &kp MINUS     &kp SPACE  &hold_fun_toggle FUN 0  &hold_scroll_toggle SCROLL 0  &td_qwrt_sym_toggle  &kp SPACE                  &kp RIGHT_ALT  &kp ENTER
+&kp LCTRL       &kp LEFT_WIN  &kp LEFT_ALT  &kp MINUS     &kp SPACE  &hold_fun_toggle FUN 0  &hold_scroll_toggle SCROLL 0  &to QWRT  &kp SPACE                  &kp RIGHT_ALT  &kp ENTER
             >;
         };
 
@@ -209,7 +209,7 @@
 &none  &none  &none  &none  &none  &none                  &none  &none  &none  &none  &none  &none
 &none  &none  &none  &none  &none  &none                  &none  &none  &none  &none  &none  &none
 &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none
-&none  &none  &none  &none  &none  &mkp RCLK  &mkp LCLK  &ht_57_fun_toggle FUN FUN  &none              &none  &none
+&none  &none  &none  &none  &none  &mkp RCLK  &mkp LCLK  &to QWRT  &none              &none  &none
             >;
         };
 
@@ -220,7 +220,7 @@
 &kp C_BRI_UP  &kp F23  &kp F24  &none    &none    &none                    &kp LC(LG(LEFT))    &kp LC(LG(RIGHT))    &none    &none    &none    &none
 &kp LC(D)     &none    &none    &none    &none    &none                    &none    &none    &none    &none    &none    &none
 &kp LC(LG(LEFT))  &none    &none    &none    &none    &none  &none  &none  &none  &none  &none  &none  &none  &none
-&kp LC(LG(RIGHT)) &none    &none    &none    &none    &mkp RCLK  &mkp LCLK  &none  &none                  &none  &none
+&kp LC(LG(RIGHT)) &none    &none    &none    &none    &mkp RCLK  &mkp LCLK  &to QWRT  &none                  &none  &none
             >;
         };
 
@@ -231,7 +231,7 @@
 &none  &none  &none  &none  &none  &none                  &none  &none  &none  &none  &none  &none
 &none  &none  &none  &none  &none  &none                  &none  &none  &none  &none  &none  &none
 &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none  &none
-&none  &none  &none  &none  &none  &none  &td_blocked_default  &td_blocked_default  &none              &none  &none
+&none  &none  &none  &none  &none  &none  &td_blocked_default  &to QWRT  &none              &none  &none
             >;
         };
     };
