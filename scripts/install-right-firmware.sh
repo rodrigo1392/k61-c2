@@ -8,6 +8,7 @@
 # EXAMPLES:
 # ./scripts/install-right-firmware.sh
 # ./scripts/install-right-firmware.sh --commit
+# ./scripts/install-right-firmware.sh --commit --local-firmware vault/0008-anterior_keyball61-right-nice-nano-v2-zmk_f845469.uf2
 # ./scripts/install-right-firmware.sh --commit --dest /mnt/d --volume-label NICENANO --timeout 45
 # ./scripts/install-right-firmware.sh --repo rodrigo1392/zmk-config-Keyball61-rr --workflow build.yml
 #
@@ -29,6 +30,7 @@
 # -d, --dry-run           Force preview mode.
 # --dest PATH             WSL staging destination. Default: /mnt/d
 # --firmware NAME         UF2 filename to install.
+# --local-firmware PATH   Existing UF2 file to install without downloading artifacts.
 # --vault-dir PATH        Repo-local artifact cache directory. Default: vault
 # --volume-label LABEL    Windows volume label to auto-detect. Default: NICENANO
 # --windows-target PATH   Fallback Windows target if label is not found. Default: E:\
@@ -49,6 +51,7 @@ set -euo pipefail
 SCRIPT_NAME="$(basename "$0")"
 DEST="/mnt/d"
 FIRMWARE="keyball61_right-nice_nano_v2-zmk.uf2"
+LOCAL_FIRMWARE=""
 VAULT_DIR="vault"
 WINDOWS_TARGET='E:\'
 WINDOWS_VOLUME_LABEL="NICENANO"
@@ -102,6 +105,11 @@ parse_args() {
       --firmware)
         [[ $# -ge 2 ]] || error "--firmware requires a filename"
         FIRMWARE="$2"
+        shift 2
+        ;;
+      --local-firmware)
+        [[ $# -ge 2 ]] || error "--local-firmware requires a path"
+        LOCAL_FIRMWARE="$2"
         shift 2
         ;;
       --vault-dir)
@@ -418,6 +426,30 @@ run_done_sound() {
   "$DONE_SOUND_SCRIPT"
 }
 
+resolve_local_firmware() {
+  local repo_root="$1"
+  local source_path="$2"
+  local candidate
+
+  case "$source_path" in
+    /*)
+      candidate="$source_path"
+      ;;
+    *)
+      if [[ -f "$source_path" ]]; then
+        candidate="$source_path"
+      else
+        candidate="${repo_root%/}/$source_path"
+      fi
+      ;;
+  esac
+
+  [[ -f "$candidate" ]] || error "Local firmware not found: $source_path"
+  [[ "$candidate" == *.uf2 ]] || error "Local firmware must be a .uf2 file: $candidate"
+
+  readlink -f "$candidate"
+}
+
 main() {
   parse_args "$@"
 
@@ -429,8 +461,6 @@ main() {
   validate_number "$TIMEOUT_MINUTES" "--timeout"
 
   git rev-parse --is-inside-work-tree >/dev/null 2>&1 || error "Run this script inside the repo"
-
-  [[ -n "$REPO" ]] || infer_repo
 
   local dry_run=true
   if [[ "$COMMIT" == true && "$DRY_RUN" == false ]]; then
@@ -451,11 +481,19 @@ main() {
   local label
   local cached_firmware
 
-  head_sha="$(git rev-parse HEAD)"
-  short_sha="$(git rev-parse --short HEAD)"
-  commit_subject="$(git log -1 --pretty=%s)"
-  deadline="$(( $(date +%s) + TIMEOUT_MINUTES * 60 ))"
   repo_root="$(git rev-parse --show-toplevel)"
+
+  if [[ -n "$LOCAL_FIRMWARE" ]]; then
+    firmware_path="$(resolve_local_firmware "$repo_root" "$LOCAL_FIRMWARE")"
+    FIRMWARE="$(basename "$firmware_path")"
+  else
+    [[ -n "$REPO" ]] || infer_repo
+    head_sha="$(git rev-parse HEAD)"
+    short_sha="$(git rev-parse --short HEAD)"
+    commit_subject="$(git log -1 --pretty=%s)"
+  fi
+
+  deadline="$(( $(date +%s) + TIMEOUT_MINUTES * 60 ))"
   dest_file="${DEST%/}/$FIRMWARE"
   ps_script="${DEST%/}/$PS_SCRIPT_NAME"
   label="$(firmware_label "$FIRMWARE")"
@@ -465,17 +503,23 @@ main() {
     vault_path="${repo_root%/}/$VAULT_DIR"
   fi
 
-  info "Repo: $REPO"
-  info "Workflow: $WORKFLOW"
-  info "Commit: $head_sha"
-  info "Commit title: $commit_subject"
+  if [[ -n "$LOCAL_FIRMWARE" ]]; then
+    info "Local firmware: $firmware_path"
+  else
+    info "Repo: $REPO"
+    info "Workflow: $WORKFLOW"
+    info "Commit: $head_sha"
+    info "Commit title: $commit_subject"
+  fi
   info "Target firmware: $FIRMWARE"
   info "Vault: $vault_path"
   info "WSL staging destination: $DEST"
   info "Windows volume label: $WINDOWS_VOLUME_LABEL"
   info "Windows fallback target: $WINDOWS_TARGET"
 
-  if cached_firmware="$(find_cached_firmware "$vault_path" "$short_sha" "$label")"; then
+  if [[ -n "$LOCAL_FIRMWARE" ]]; then
+    info "Using local firmware: $firmware_path"
+  elif cached_firmware="$(find_cached_firmware "$vault_path" "$short_sha" "$label")"; then
     firmware_path="$cached_firmware"
     info "Using cached firmware: $firmware_path"
   else

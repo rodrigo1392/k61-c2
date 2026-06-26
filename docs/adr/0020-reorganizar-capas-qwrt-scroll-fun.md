@@ -14,6 +14,10 @@ En `QWRT`, asignar la posicion 42 a `SCROLL` momentaneo, la posicion 55 a click
 derecho, la posicion 56 a click izquierdo y la posicion 57 a hold `FUN` / tap
 toggle `FUN`.
 
+Rotar las funciones de las posiciones 40, 41 y 42 en todas las capas, de modo
+que 40 recibe la funcion anterior de 41, 41 recibe la funcion anterior de 42 y
+42 recibe la funcion anterior de 40.
+
 En `MOUSE`, repetir explicitamente las posiciones de `QWRT` para que automouse
 mantenga las teclas normales y los clicks sin depender de `&trans`.
 
