@@ -10,8 +10,12 @@ sin cambiar las teclas de `QWRT` que no fueron solicitadas.
 Reordenar los indices de capas para que `SCROLL` sea layer 2 y `FUN` sea layer
 3. Mover `TRACKBLESS` a layer 4 y `SYM` a layer 5.
 
-En `QWRT`, asignar la posicion 42 a `SCROLL` momentaneo, las posiciones 55 y 56
-a click derecho e izquierdo, y la posicion 57 a hold `FUN` / tap toggle `FUN`.
+En `QWRT`, asignar la posicion 42 a click izquierdo, la posicion 55 a click
+derecho, la posicion 56 a `SCROLL` momentaneo y la posicion 57 a hold `FUN` /
+tap toggle `FUN`.
+
+Intercambiar las funciones de las posiciones 42 y 56 en todas las capas respecto
+de la distribucion anterior.
 
 En `MOUSE`, repetir explicitamente las posiciones de `QWRT` para que automouse
 mantenga las teclas normales y los clicks sin depender de `&trans`.
@@ -24,16 +28,17 @@ salida a `QWRT`, bracket izquierdo, un bloque numerico con operadores y acceso
 a `SUPERFUN` desde la posicion de `\`.
 
 En `FUN`, conservar las funciones existentes y mover los accesos de `BLOCKED`,
-`SYM` y `SNIPE` a las posiciones 1, 2 y 3. Activar `TRACKBLESS` solo desde
-`FUN`, en la posicion 5.
+`SYM` y `SNIPE` a las posiciones 1, 2 y 3. Alternar `TRACKBLESS` solo desde
+`FUN`, en la posicion 5. `TRACKBLESS` se desactiva desde la posicion 57, que
+vuelve a `QWRT`.
 
 En `FUN`, las posiciones sin funcion especial envian la tecla normal equivalente
-de `QWRT`. Las posiciones 55 y 56 mantienen click derecho e izquierdo, y la
+de `QWRT`. Las posiciones 42 y 55 mantienen click izquierdo y derecho, y la
 posicion 58 envia `ENTER`.
 
 En todas las capas no base, la posicion 57 vuelve explicitamente a `QWRT`.
 
-Las posiciones 55 y 56 envian click derecho e izquierdo en todas las capas salvo
+Las posiciones 42 y 55 envian click izquierdo y derecho en todas las capas salvo
 `TRACKBLESS` y `BLOCKED`.
 
 Asignar controles multimedia a las posiciones 0, 12, 24, 36 y 50.
@@ -49,7 +54,8 @@ trackball en `TRACKBLESS` usando el nuevo indice 4.
 La configuracion del PMW3610 deja de declarar `automouse-layer` y opciones de
 timeout/umbral de automouse.
 
-El modificador de backspace ahora envia delete con Ctrl o Alt.
+El modificador de backspace ahora envia delete solo con Shift. Ctrl+Backspace y
+Alt+Backspace conservan el comportamiento normal del sistema.
 
 Los botones de mouse usan la configuracion actual de ZMK con
 `CONFIG_ZMK_POINTING=y` y `dt-bindings/zmk/pointing.h`.
