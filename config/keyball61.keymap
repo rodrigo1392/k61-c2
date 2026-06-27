@@ -124,6 +124,14 @@
             bindings = <&mo>, <&tog>;
         };
 
+        ht_superfun_toggle: ht_superfun_toggle {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
+            flavor = "hold-preferred";
+            bindings = <&mo>, <&tog>;
+        };
+
         td_mouse_toggle: td_mouse_toggle {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
@@ -177,7 +185,7 @@
             label = "SCROLL";
             bindings = <
 &none  &none  &none  &none  &none  &none                  &kp PLUS  &kp MINUS  &kp ASTERISK  &kp FSLH  &none  &kp DEL
-&none  &none  &none  &none  &none  &none                  &kp N7    &kp N8     &kp N9        &kp EQUAL &none  &lt SUPERFUN BACKSLASH
+&none  &none  &none  &none  &none  &none                  &kp N7    &kp N8     &kp N9        &kp EQUAL &none  &ht_superfun_toggle SUPERFUN SUPERFUN
 &none  &none  &mkp RCLK  &mkp MCLK  &mkp LCLK  &kp PAGE_UP            &kp N4    &kp N5     &kp N6        &none     &kp UP  &none
 &kp LEFT_SHIFT  &none  &none  &none  &mkp LCLK  &kp V   &kp B        &kp N0  &kp N1  &kp N2  &kp N3  &kp LEFT  &kp DOWN  &kp RIGHT
 &kp LCTRL  &none  &none  &kp LEFT_BRACKET  &mkp MCLK  &mkp RCLK  &mo SCROLL  &to QWRT  &none              &none  &none
@@ -188,7 +196,7 @@
             label = "FUN";
             bindings = <
 &kp C_VOL_DN  &to BLOCKED &tog SYM &tog SNIPE &kp N4  &tog TRACKBLESS                  &kp PLUS  &kp MINUS  &kp ASTERISK  &kp FSLH  &kp N0  &shift_backspace_delete
-&kp C_VOL_UP  &kp F1      &kp F2   &kp F3     &kp F4  &email_rodrigo         &kp N7    &kp N8     &kp N9        &kp EQUAL &kp P  &lt SUPERFUN BACKSLASH
+&kp C_VOL_UP  &kp F1      &kp F2   &kp F3     &kp F4  &email_rodrigo         &kp N7    &kp N8     &kp N9        &kp EQUAL &kp P  &ht_superfun_toggle SUPERFUN SUPERFUN
 &kp C_PP      &kp F5      &kp F6   &kp F7     &kp F8  &kp PAGE_UP            &kp N4    &kp N5     &kp N6        &kp L     &kp SEMI  &kp SQT
 &kp C_PREV    &kp F9      &kp F10  &kp F11    &mkp LCLK  &kp V   &kp B        &kp N0  &kp N1  &kp N2  &kp N3  &kp DOT  &kp FSLH  &kp RIGHT_SHIFT
 &kp C_NEXT    &kp LEFT_WIN &kp LEFT_ALT &kp MINUS &kp ENTER  &mkp RCLK  &mo SCROLL  &to QWRT  &kp ENTER              &kp RIGHT_ALT  &kp ENTER
@@ -232,7 +240,7 @@
             label = "SUPERFUN";
             bindings = <
 &kp C_BRI_DN  &kp F13  &kp F14  &kp F15  &kp F16  &kp F17                  &kp F18  &kp F19  &kp F20  &kp F21  &kp F22  &none
-&kp C_BRI_UP  &kp F23  &kp F24  &none    &none    &bt BT_SEL 4             &kp LC(LG(LEFT))    &kp LC(LG(RIGHT))    &none    &none    &none    &none
+&kp C_BRI_UP  &kp F23  &kp F24  &none    &none    &bt BT_SEL 4             &kp LC(LG(LEFT))    &kp LC(LG(RIGHT))    &none    &none    &none    &trans
 &kp LC(D)     &bt BT_CLR  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3                &none    &none    &none    &none    &none    &none
 &kp LC(LG(LEFT))  &none    &none    &none    &mkp LCLK  &kp V   &kp B        &none  &none  &none  &none  &none  &none  &none
 &kp LC(LG(RIGHT)) &none    &none    &none    &none    &mkp RCLK  &none  &to QWRT  &none                  &none  &none

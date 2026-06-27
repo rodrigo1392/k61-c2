@@ -23,7 +23,8 @@ porque las funciones necesarias de mouse estan disponibles desde `QWRT`.
 
 En `SCROLL`, agregar flechas, delete en backspace, click medio, page up/down,
 salida a `QWRT`, bracket izquierdo, un bloque numerico con operadores y acceso
-a `SUPERFUN` desde la posicion de `\`.
+a `SUPERFUN` desde la posicion de `\`. En `SCROLL` y `FUN`, tocar `\` alterna
+`SUPERFUN` y mantenerla presionada activa la capa momentaneamente.
 
 En `SCROLL`, asignar `S`, `D` y `F` a click derecho, click medio y click
 izquierdo.
