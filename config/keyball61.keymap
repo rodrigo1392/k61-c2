@@ -124,12 +124,19 @@
             bindings = <&mo>, <&tog>;
         };
 
+        td_mouse_toggle: td_mouse_toggle {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <500>;
+            bindings = <&none>, <&none>, <&tog MOUSE>;
+        };
+
         ht_55_mouse_toggle: ht_55_mouse_toggle {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             tapping-term-ms = <200>;
             flavor = "hold-preferred";
-            bindings = <&mo>, <&tog>;
+            bindings = <&mo>, <&td_mouse_toggle>;
         };
 
         td_blocked_default: td_blocked_default {
@@ -151,7 +158,7 @@
 &kp TAB         &kp Q         &kp W         &kp E         &kp R   &kp T                                    &kp Y            &kp U   &kp I      &kp O    &kp P          &kp BACKSLASH
 &kp ESC         &kp A         &kp S         &kp D         &kp F   &kp G                                    &kp H            &kp J   &kp K      &kp L    &kp SEMI       &kp SQT
 &kp LEFT_SHIFT  &kp Z         &kp X         &kp C         &mkp LCLK  &kp V   &kp B        &kp RIGHT_BRACKET  &kp N            &kp M   &kp COMMA  &kp DOT  &kp FSLH       &kp RIGHT_SHIFT
-&kp LCTRL       &kp LEFT_WIN  &kp LEFT_ALT  &kp MINUS     &kp SPACE  &ht_55_mouse_toggle MOUSE MOUSE  &mo SCROLL  &ht_57_fun_toggle FUN FUN  &kp SPACE                  &kp RIGHT_ALT  &kp ENTER
+&kp LCTRL       &kp LEFT_WIN  &kp LEFT_ALT  &kp MINUS     &kp SPACE  &ht_55_mouse_toggle MOUSE 0  &mo SCROLL  &ht_57_fun_toggle FUN FUN  &kp SPACE                  &kp RIGHT_ALT  &kp ENTER
             >;
         };
 
@@ -204,7 +211,7 @@
             bindings = <
 &none  &kp EXCLAMATION  &kp AT_SIGN   &kp HASH      &kp DOLLAR    &kp PERCENT                  &kp CARET       &kp AMPERSAND  &kp ASTERISK      &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &none
 &none  &none            &none         &none         &none         &none                        &none           &none          &none             &none                 &none                  &none
-&none  &bt BT_CLR       &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &none                        &kp MINUS       &kp EQUAL      &kp LEFT_BRACKET  &kp RIGHT_BRACKET     &none                  &none
+&none  &none            &none         &none         &none         &none                        &kp MINUS       &kp EQUAL      &kp LEFT_BRACKET  &kp RIGHT_BRACKET     &none                  &none
 &none  &none            &none         &none         &mkp LCLK  &kp V   &kp B        &kp DEL   &kp UNDERSCORE  &kp PLUS       &none             &none                 &none                  &none
 &none  &none            &none         &none         &kp ENTER  &mkp RCLK  &none  &to QWRT  &kp ENTER                                                            &none                  &none
             >;
@@ -225,8 +232,8 @@
             label = "SUPERFUN";
             bindings = <
 &kp C_BRI_DN  &kp F13  &kp F14  &kp F15  &kp F16  &kp F17                  &kp F18  &kp F19  &kp F20  &kp F21  &kp F22  &none
-&kp C_BRI_UP  &kp F23  &kp F24  &none    &none    &none                    &kp LC(LG(LEFT))    &kp LC(LG(RIGHT))    &none    &none    &none    &none
-&kp LC(D)     &none    &none    &none    &none    &none                    &none    &none    &none    &none    &none    &none
+&kp C_BRI_UP  &kp F23  &kp F24  &none    &none    &bt BT_SEL 4             &kp LC(LG(LEFT))    &kp LC(LG(RIGHT))    &none    &none    &none    &none
+&kp LC(D)     &bt BT_CLR  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3                &none    &none    &none    &none    &none    &none
 &kp LC(LG(LEFT))  &none    &none    &none    &mkp LCLK  &kp V   &kp B        &none  &none  &none  &none  &none  &none  &none
 &kp LC(LG(RIGHT)) &none    &none    &none    &none    &mkp RCLK  &none  &to QWRT  &none                  &none  &none
             >;

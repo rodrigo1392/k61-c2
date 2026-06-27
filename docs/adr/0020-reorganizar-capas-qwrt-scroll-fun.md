@@ -11,7 +11,7 @@ Reordenar los indices de capas para que `SCROLL` sea layer 2 y `FUN` sea layer
 3. Mover `TRACKBLESS` a layer 4 y `SYM` a layer 5.
 
 En `QWRT`, asignar la posicion 40 a click izquierdo, la posicion 41 a `V`, la
-posicion 42 a `B`, la posicion 55 a hold `MOUSE` / tap toggle `MOUSE`, la
+posicion 42 a `B`, la posicion 55 a hold `MOUSE` / triple tap toggle `MOUSE`, la
 posicion 56 a `SCROLL` momentaneo y la posicion 57 a hold `FUN` / tap toggle
 `FUN`.
 
@@ -43,6 +43,9 @@ Asignar controles multimedia a las posiciones 0, 12, 24, 36 y 50.
 
 En `SUPERFUN`, asignar brillo, `Ctrl+D` y cambio de escritorio virtual de
 Windows a las posiciones 0, 12, 24, 36 y 50.
+
+Mover de `SYM` a `SUPERFUN` los controles Bluetooth, conservando
+`A=BT_CLR` y `S/D/F=perfiles 1/2/3`. Agregar los perfiles 4 y 5 en `G` y `T`.
 
 ## Consequences
 
